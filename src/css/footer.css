@@ -1,0 +1,19 @@
+/* Footer styles
+-------------------------------------------------- */
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 1vm;
+    background:
+        /* color overlay */
+            linear-gradient(
+                    rgba(255, 255, 255, 0.45),
+                    rgba(0, 0, 0, 0.45)
+            ),
+                /* image to overlay */
+            url(http://images.cdn.fotopedia.com/_avPIZmqM3w-7z161LH_268-hd.jpg);
+}
+
