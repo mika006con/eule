@@ -5,26 +5,15 @@ function removeActiveClass(){
     $("#nav_kontakt").removeClass("active");
 };
 
-$("#nav_aktuelles").click(function() {
-    $("#contentframe").load("aktuelles.html #content" );
+function switchContent( destination ){
+    var dest = destination + ".html #content";
+    $("#contentframe").load( dest );
     removeActiveClass();
-    $("#nav_aktuelles").addClass("active");
-});
+    var nav = "#nav_" + destination;
+    $(nav).addClass("active");
+}
 
-$("#nav_berechnung").click(function() {
-    $("#contentframe").load("berechnung.html #content" );
-    removeActiveClass();
-    $("#nav_berechnung").addClass("active");
-});
-
-$("#nav_projekt").click(function() {
-    $("#contentframe").load("projekt.html #content" );
-    removeActiveClass();
-    $("#nav_projekt").addClass("active");
-});
-
-$("#nav_kontakt").click(function() {
-    $("#contentframe").load("kontakt.html #content" );
-    removeActiveClass();
-    $("#nav_kontakt").addClass("active");
-});
+$("#nav_aktuelles").click(switchContent("aktuelles"));
+$("#nav_berechnung").click(switchContent("berechnung"));
+$("#nav_projekt").click(switchContent("projekt"));
+$("#nav_kontakt").click(switchContent("kontakt"));
