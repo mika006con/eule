@@ -15,5 +15,5 @@ function switchContent( destination ){
 
 $("#nav_aktuelles").click(switchContent("aktuelles"));
 $("#nav_berechnung").click(switchContent("berechnung"));
-$("#nav_projekt").click(switchContent("projekt"));
 $("#nav_kontakt").click(switchContent("kontakt"));
+$("#nav_projekt").click(switchContent("projekt"));
