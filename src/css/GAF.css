@@ -1,0 +1,42 @@
+.GAF-bar-element {
+    width: 140px;
+    height: 60px;
+    background: red;
+    position: relative;
+    margin: 2px;
+}
+
+.GAF-bar-element::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 30px solid transparent;
+    border-top: 30px solid transparent;
+    border-left: 30px solid white;
+    border-bottom: 30px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 20px;
+}
+
+.GAF-bar-element:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-left: 10px solid green;
+    border-bottom: 90px solid transparent;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 00px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 00px;
+
+}
+
+.GAF-bar-element:active {
+    border: 2px solid green;
+}
