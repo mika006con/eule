@@ -3,14 +3,20 @@ function removeActiveClass(){
     $("#nav_berechnung").removeClass("active");
     $("#nav_projekt").removeClass("active");
     $("#nav_kontakt").removeClass("active");
-};
+}
 
 function switchContent( destination ){
     var dest = destination + ".html #content";
-    $("#contentframe").load( dest );
-    removeActiveClass();
-    var nav = "#nav_" + destination;
-    $(nav).addClass("active");
+    $("#contentframe").fadeOut("slow", "swing", function(){
+        $("#contentframe").load(dest);
+        var i = $("#contentframe").children();
+        alert(i);
+       // executeScript(destination);
+        $("#contentframe").fadeIn();
+        removeActiveClass();
+        var nav = "#nav_" + destination;
+        $(nav).addClass("active");
+    });
 }
 
 switchContent("aktuelles");
@@ -30,3 +36,23 @@ $("#nav_projekt").on({
 $("#nav_kontakt").on({
     click:      function(){ switchContent("kontakt");       }
 });
+
+
+function executeScript( dest ){
+    switch(dest) {
+        case "aktuelles":
+            executeAktuelles();
+            break;
+        case "berechnung":
+            executeBerechnung();
+            break;
+        case "projekt":
+            executeProjekt();
+            break;
+        case "kontakt":
+            executeKontakt();
+            break;
+        default:
+            break;
+    }
+}
