@@ -2,12 +2,149 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <!-- Bootstrap 3.3.7 -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-theme.min.css">
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet" href="css/footer.css">
     <title>Berechnung</title>
 </head>
 <body>
+
+
+
 <div id="content">
-    <h4>Berechnung</h4>
-    P enis
+<!--------------- BEGINN OF CONTENT ------------->
+    <center>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12; well">
+
+                    <canvas id="GAF_1" width="151" height="75"></canvas>
+                    <canvas id="GAF_2" width="151" height="75"></canvas>
+                    <canvas id="GAF_3" width="151" height="75"></canvas>
+                    <canvas id="GAF_4" width="151" height="75"></canvas>
+                    <br/>
+                    <canvas id="GAF_5" width="151" height="75"></canvas>
+                    <canvas id="GAF_6" width="151" height="75"></canvas>
+                    <canvas id="GAF_7" width="151" height="75"></canvas>
+                    <canvas id="GAF_8" width="151" height="75"></canvas>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container" id="Grunddaten">
+            <div class="form-group">
+                <label for="locationAutocomplete">Adresse:</label>
+                <br/>
+                <input class="input-group-sm" id="locationAutocomplete" type="text" size="50"
+                       placeholder="Geben Sie hier Ihre Adresse ein">
+                <br />
+                <br/>
+                <label for="locationStreet">Straße:</label>
+                <br/>
+                <input class="input-group-sm" id="locationStreet" type="text" size="50"
+                        title="Straße des Objektes" data-toggle="tooltip" data-placement="right">
+                <br/>
+                <label for="locationHouseID">Haus-Nr:</label>
+                <br/>
+                <input class="input-group-sm" id="locationHouseID" type="text" size="50"
+                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="right">
+
+                <br />
+                <label for="locationZIP">PLZ:</label>
+                <br/>
+                <input class="input-group-sm" id="locationZIP" type="text" size="50"
+                       title="Postleitzahl des Objektes" data-toggle="tooltip" data-placement="right">
+                <br/>
+                <label for="locationCity">Stadt:</label>
+                <br/>
+                <input class="input-group-sm" id="locationCity" type="text" size="50"
+                       title="Stadt des Objektes" data-toggle="tooltip" data-placement="right">
+                <br />
+                <label for="locationCountry">Land:</label>
+                <br/>
+                <input class="input-group-sm" id="locationCountry" type="text" size="50"
+                       title="Land des Objektes" data-toggle="tooltip" data-placement="right">
+                <br/>
+            </div>
+            <div class="col-md-12">
+                <button id="Grunddaten_btn_back" type="button" class="btn btn-primary disabled">Zurück</button>
+                <button id="Grunddaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+            </div>
+        </div>
+
+
+        <!-----------------  ####### NEW PART ###### --------------------->
+
+
+        <div class="container" id="Gebäudedaten" style="display: none;">
+            <div class="form-group">
+                <label for="locationStreet">Aufbauart:</label>
+                <br/>
+                <input class="input-group-sm" id="aufbauart" type="text" size="50"
+                       title="Straße des Objektes" data-toggle="tooltip" data-placement="right">
+                <br/>
+                <label for="locationHouseID">Stockwerte:</label>
+                <br/>
+                <input class="input-group-sm" id="stockwerte" type="text" size="50"
+                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="right">
+
+                <br />
+            </div>
+            <div class="col-md-12">
+                <button id="Gebäudedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                <button id="Gebäudedaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+            </div>
+        </div>
+
+
+        <!-----------------  ####### NEW PART ###### --------------------->
+
+
+        <div class="container" id="Energiedaten" style="display: none;">
+            <div class="form-group">
+                <label for="locationStreet">Energie:</label>
+                <br/>
+                <input class="input-group-sm" id="Energie" type="text" size="50"
+                       title="Straße des Objektes" data-toggle="tooltip" data-placement="right">
+                <br/>
+                <label for="locationHouseID">Ausweis:</label>
+                <br/>
+                <input class="input-group-sm" id="Ausweis" type="text" size="50"
+                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="right">
+
+                <br />
+            </div>
+            <div class="col-md-12">
+                <button id="Energiedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                <button id="Energiedaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </center>
 </div>
+<!--------------- END OF CONTENT ------------->
+
+
+<!-- JQuery 3.3.7 -->
+<script src="../lib/jquery/jquery-3.2.1.min.js"></script>
+<!-- JQuery UI 3.2.1 -->
+<script src="../lib/jquery_ui/jquery-ui.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- Custom Script Files -->
+<script type="text/javascript" src="js/berechnung.js"></script>
 </body>
 </html>
