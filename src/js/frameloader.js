@@ -8,11 +8,9 @@ function removeActiveClass(){
 function switchContent( destination ){
     var dest = destination + ".html #content";
     $("#contentframe").fadeOut("slow", "swing", function(){
-        $("#contentframe").load(dest);
-        var i = $("#contentframe").children();
-        alert(i);
-       // executeScript(destination);
-        $("#contentframe").fadeIn();
+        var htm = $.get(dest);
+        alert(htm);
+        $("#contentframe").append(htm);
         removeActiveClass();
         var nav = "#nav_" + destination;
         $(nav).addClass("active");
