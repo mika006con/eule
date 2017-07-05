@@ -39,37 +39,51 @@
 
         <div class="container" id="Grunddaten">
             <div class="form-group">
-                <label for="locationAutocomplete">Adresse:</label>
+                <label class="control-label" for="locationAutocomplete">Adresse:</label>
                 <br/>
                 <input class="input-group-sm" id="locationAutocomplete" type="text" size="50"
                        placeholder="Geben Sie hier Ihre Adresse ein">
                 <br />
-                <br/>
-                <label for="locationStreet">Straße:</label>
-                <br/>
-                <input class="input-group-sm" id="locationStreet" type="text" size="50"
-                        title="Straße des Objektes" data-toggle="tooltip" data-placement="right">
-                <br/>
-                <label for="locationHouseID">Haus-Nr:</label>
-                <br/>
-                <input class="input-group-sm" id="locationHouseID" type="text" size="50"
-                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="right">
-
                 <br />
-                <label for="locationZIP">PLZ:</label>
+            </div>
+            <div id="locationStreetDIV" class="form-group has-feedback">
+                <label class="control-label" for="locationStreet">Straße:</label>
                 <br/>
-                <input class="input-group-sm" id="locationZIP" type="text" size="50"
-                       title="Postleitzahl des Objektes" data-toggle="tooltip" data-placement="right">
+                <input class="input-group-sm form-control" id="locationStreet" type="text" size="50"
+                        title="Straße des Objektes" data-toggle="tooltip" data-placement="bottom">
+                <span id="locationStreetSPAN" class="glyphicon form-control-feedback"></span>
                 <br/>
-                <label for="locationCity">Stadt:</label>
+            </div>
+            <div id="locationHouseIDDIV" class="form-group has-feedback">
+                <label class="control-label" for="locationHouseID">Haus-Nr:</label>
                 <br/>
-                <input class="input-group-sm" id="locationCity" type="text" size="50"
-                       title="Stadt des Objektes" data-toggle="tooltip" data-placement="right">
+                <input class="input-group-sm form-control" id="locationHouseID" type="text" size="50"
+                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="bottom">
+                <span id="locationHouseIDSPAN" class="glyphicon form-control-feedback"></span>
                 <br />
-                <label for="locationCountry">Land:</label>
+            </div>
+            <div id="locationZIPDIV" class="form-group has-feedback">
+                <label class="control-label" for="locationZIP">PLZ:</label>
                 <br/>
-                <input class="input-group-sm" id="locationCountry" type="text" size="50"
-                       title="Land des Objektes" data-toggle="tooltip" data-placement="right">
+                <input class="input-group-sm form-control" id="locationZIP" type="text" size="50"
+                       title="Postleitzahl des Objektes" data-toggle="tooltip" data-placement="bottom">
+                <span id="locationZIPSPAN" class="glyphicon form-control-feedback"></span>
+                <br/>
+            </div>
+            <div id="locationCityDIV" class="form-group has-feedback">
+                <label class="control-label" for="locationCity">Stadt:</label>
+                <br/>
+                <input class="input-group-sm form-control" id="locationCity" type="text" size="50"
+                       title="Stadt des Objektes" data-toggle="tooltip" data-placement="bottom">
+                <span id="locationCitySPAN" class="glyphicon form-control-feedback"></span>
+                <br />
+            </div>
+            <div id="locationCountryDIV" class="form-group has-feedback">
+                <label class="control-label" for="locationCountry">Land:</label>
+                <br/>
+                <input class="input-group-sm form-control" id="locationCountry" type="text" size="50"
+                       title="Land des Objektes" data-toggle="tooltip" data-placement="bottom">
+                <span id="locationCountrySPAN" class="glyphicon form-control-feedback"></span>
                 <br/>
             </div>
             <div class="col-md-12">
@@ -84,16 +98,48 @@
 
         <div class="container" id="Gebäudedaten" style="display: none;">
             <div class="form-group">
-                <label for="locationStreet">Aufbauart:</label>
+                <label for="buildingYearMain">Baujahr Haupthaus:</label>
                 <br/>
-                <input class="input-group-sm" id="aufbauart" type="text" size="50"
-                       title="Straße des Objektes" data-toggle="tooltip" data-placement="right">
+                <input class="input-group-sm form-control" id="buildingYearMain" type="number" min="1800" size="50"
+                       title="Baujahr des Gebäudes" data-toggle="tooltip" data-placement="bottom"
+                       data-validation="date" data-validation-format="yyyy">
+                <br />
+                <div class="checkbox">
+                    <label><input id="isBuildingAddition" type="checkbox" value="">Anbau vorhanden</label>
+                </div>
+                <div id="buildingYearAdd_DIV" style="display: none";>
+                    <label for="buildingYearAdd">Baujahr Anbau:</label>
+                    <br/>
+                    <input class="input-group-sm" style="display: none;" id="buildingYearAdd" type="text" size="50"
+                           title="Baujahr des Anbaus" data-toggle="tooltip" data-placement="bottom"
+                           data-validation="date" data-validation-format="yyyy">
+                    <br />
+                </div>
+                <label>Aufbauart (annähernd):</label>
                 <br/>
-                <label for="locationHouseID">Stockwerte:</label>
+                <label class="radio-inline" title="<img src='img/buildingTypes/quadratisch.png'/>"
+                       data-toggle="tooltip" data-placement="bottom">
+                    <input type="radio" name="buildingType">quadratisch</label>
+                <label class="radio-inline" title="<img src='img/buildingTypes/rechteck.png'/>"
+                       data-toggle="tooltip" data-placement="bottom">
+                    <input type="radio" name="buildingType">rechteckig</label>
+                <label class="radio-inline" title="<img src='img/buildingTypes/l-foermig.png'/>"
+                       data-toggle="tooltip" data-placement="bottom">
+                    <input type="radio" name="buildingType">L-Förmig</label>
+                <label class="radio-inline" title="<img src='img/buildingTypes/h-foermig.png'/>"
+                       data-toggle="tooltip" data-placement="bottom">
+                    <input type="radio" name="buildingType">H-Förmig</label>
+                <label class="radio-inline" title="<img src='img/buildingTypes/u-foermig.png'/>"
+                       data-toggle="tooltip" data-placement="bottom">
+                       <input type="radio" name="buildingType">U-Förmig</label>
+                <label class="radio-inline" title="<img src='img/buildingTypes/o-foermig.png'/>"
+                       data-toggle="tooltip" data-placement="bottom">
+                    <input type="radio" name="buildingType">O-Förmig</label>
+                <br/><br/>
+                <label for="upperStories">Stockwerte:</label>
                 <br/>
-                <input class="input-group-sm" id="stockwerte" type="text" size="50"
-                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="right">
-
+                <input class="form-control input-group-sm" id="upperStories" type="text" size="50"
+                       title="Stockwerke des Objektes, Erdgeschoss zählt als 1 Stockwerk" data-toggle="tooltip" data-placement="bottom">
                 <br />
             </div>
             <div class="col-md-12">
@@ -111,12 +157,12 @@
                 <label for="locationStreet">Energie:</label>
                 <br/>
                 <input class="input-group-sm" id="Energie" type="text" size="50"
-                       title="Straße des Objektes" data-toggle="tooltip" data-placement="right">
+                       title="Straße des Objektes" data-toggle="tooltip" data-placement="bottom">
                 <br/>
                 <label for="locationHouseID">Ausweis:</label>
                 <br/>
                 <input class="input-group-sm" id="Ausweis" type="text" size="50"
-                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="right">
+                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="bottom">
 
                 <br />
             </div>

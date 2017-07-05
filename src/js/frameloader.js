@@ -8,12 +8,13 @@ function removeActiveClass(){
 function switchContent( destination ){
     var dest = destination + ".html #content";
     $("#contentframe").fadeOut("slow", "swing", function(){
-        var htm = $.get(dest);
-        alert(htm);
-        $("#contentframe").append(htm);
         removeActiveClass();
         var nav = "#nav_" + destination;
-        $(nav).addClass("active");
+        $("#contentframe").load(dest, function(respone, status, xhr){
+            console.log("Loading: " + status);
+            $("#contentframe").fadeIn("slow");
+            $(nav).addClass("active");
+        });
     });
 }
 
