@@ -98,7 +98,7 @@ function EventHandlingListener(){
     $("#Grunddaten_btn_forward").on({
         click:
             function(){
-                formShowNext(Step1Validation(), "Grunddaten", "Gebäudedaten");
+               formShowNext(Step1Validation(), "Grunddaten", "Gebäudedaten");
             }
     });
     $("#Gebäudedaten_btn_back").on({
@@ -194,15 +194,165 @@ function EventHandlingListener(){
     });
 
     // --> Step 2 onFocusOut Validation <<<
-    $("#isBuildingAddition").on({
-        change:
-            function (){
-                alert("HALLO");
-                var isChecked = $("#isBuildingAddition").val();
-                if ( isChecked ){
-                    $("#buildingYearAdd_DIV").fadeIn("slow");
+    $("#buildingYearMain").on({
+        focusout:
+            function() {
+                removeValidationClasses("#buildingYearMain");
+                var year = $("#buildingYearMain").val();
+                var currentYear = new Date().getFullYear();  //yyyy
+                if ( year <= currentYear ) {
+                    addValidationClasses("#buildingYearMain", "success");
+                } else {
+                    addValidationClasses("#buildingYearMain", "error");
                 }
             }
+    });
+    $("#buildingYearAdd").on({
+        focusout:
+            function() {
+                removeValidationClasses("#buildingYearAdd");
+                var year = $("#buildingYearAdd").val();
+                var currentYear = new Date().getFullYear();  //yyyy
+                if ( year <= currentYear ) {
+                    addValidationClasses("#buildingYearAdd", "success");
+                } else {
+                    addValidationClasses("#buildingYearAdd", "error");
+                }
+            }
+    });
+    $("#isBuildingAddition").on({
+        change:
+            function () {
+                if (document.getElementById('isBuildingAddition').checked) {
+                    $("#buildingYearAddDIV").fadeIn("slow");
+                } else {
+                    $("#buildingYearAddDIV").fadeOut("slow");
+                }
+            }
+    });
+    $("input:radio[name='buildingType']").on({
+       change:
+        function(){
+           var selectedOption = $("input:radio[name='buildingType']:checked").val();
+           switch (selectedOption){
+               case "quadratisch":
+                   $("#wrapBuildingMeasure").fadeOut("fast", "swing", function () {
+                       $("#buildingMeasureIMG").attr("src", "img/buildingMeasures/quadratisch.png");
+                       $("#siteAlabel").css("visibility", "visible");
+                       $("#siteBlabel").css("visibility", "visible");
+                       $("#siteClabel").css("visibility", "visible");
+                       $("#siteDlabel").css("visibility", "visible");
+                       $("#siteElabel").css("visibility", "hidden");
+                       $("#siteFlabel").css("visibility", "hidden");
+                       $("#siteGlabel").css("visibility", "hidden");
+                       $("#siteHlabel").css("visibility", "hidden");
+                       $("#siteIlabel").css("visibility", "hidden");
+                       $("#siteJlabel").css("visibility", "hidden");
+                       $("#siteKlabel").css("visibility", "hidden");
+                       $("#siteLlabel").css("visibility", "hidden");
+                       $("#wrap-buildingMeasure").fadeIn();
+                   });
+                   break;
+
+               case "rechteckig":
+                   $("#wrapBuildingMeasure").fadeOut("fast", "swing", function () {
+                       $("#buildingMeasureIMG").attr("src", "img/buildingMeasures/rechteckig.png");
+                       $("#siteAlabel").css("visibility", "visible");
+                       $("#siteBlabel").css("visibility", "visible");
+                       $("#siteClabel").css("visibility", "visible");
+                       $("#siteDlabel").css("visibility", "visible");
+                       $("#siteElabel").css("visibility", "hidden");
+                       $("#siteFlabel").css("visibility", "hidden");
+                       $("#siteGlabel").css("visibility", "hidden");
+                       $("#siteHlabel").css("visibility", "hidden");
+                       $("#siteIlabel").css("visibility", "hidden");
+                       $("#siteJlabel").css("visibility", "hidden");
+                       $("#siteKlabel").css("visibility", "hidden");
+                       $("#siteLlabel").css("visibility", "hidden");
+                       $("#wrap-buildingMeasure").fadeIn();
+                   });
+                   break;
+
+               case "lform":
+                   $("#wrapBuildingMeasure").fadeOut("fast", "swing", function () {
+                       $("#buildingMeasureIMG").attr("src", "img/buildingMeasures/l-foermig.png");
+                       $("#siteAlabel").css("visibility", "visible");
+                       $("#siteBlabel").css("visibility", "visible");
+                       $("#siteClabel").css("visibility", "visible");
+                       $("#siteDlabel").css("visibility", "visible");
+                       $("#siteElabel").css("visibility", "visible");
+                       $("#siteFlabel").css("visibility", "visible");
+                       $("#siteGlabel").css("visibility", "hidden");
+                       $("#siteHlabel").css("visibility", "hidden");
+                       $("#siteIlabel").css("visibility", "hidden");
+                       $("#siteJlabel").css("visibility", "hidden");
+                       $("#siteKlabel").css("visibility", "hidden");
+                       $("#siteLlabel").css("visibility", "hidden");
+                       $("#wrap-buildingMeasure").fadeIn();
+                   });
+                   break;
+
+               case "hform":
+                   $("#wrapBuildingMeasure").fadeOut("fast", "swing", function () {
+                       $("#buildingMeasureIMG").attr("src", "img/buildingMeasures/h-foermig.png");
+                       $("#siteAlabel").css("visibility", "visible");
+                       $("#siteBlabel").css("visibility", "visible");
+                       $("#siteClabel").css("visibility", "visible");
+                       $("#siteDlabel").css("visibility", "visible");
+                       $("#siteElabel").css("visibility", "visible");
+                       $("#siteFlabel").css("visibility", "visible");
+                       $("#siteGlabel").css("visibility", "visible");
+                       $("#siteHlabel").css("visibility", "visible");
+                       $("#siteIlabel").css("visibility", "visible");
+                       $("#siteJlabel").css("visibility", "visible");
+                       $("#siteKlabel").css("visibility", "visible");
+                       $("#siteLlabel").css("visibility", "visible");
+                       $("#wrap-buildingMeasure").fadeIn();
+                   });
+                   break;
+
+               case "uform":
+                   $("#wrapBuildingMeasure").fadeOut("fast", "swing", function () {
+                       $("#buildingMeasureIMG").attr("src", "img/buildingMeasures/u-foermig.png");
+                       $("#siteAlabel").css("visibility", "visible");
+                       $("#siteBlabel").css("visibility", "visible");
+                       $("#siteClabel").css("visibility", "visible");
+                       $("#siteDlabel").css("visibility", "visible");
+                       $("#siteElabel").css("visibility", "visible");
+                       $("#siteFlabel").css("visibility", "visible");
+                       $("#siteGlabel").css("visibility", "visible");
+                       $("#siteHlabel").css("visibility", "visible");
+                       $("#siteIlabel").css("visibility", "hidden");
+                       $("#siteJlabel").css("visibility", "hidden");
+                       $("#siteKlabel").css("visibility", "hidden");
+                       $("#siteLlabel").css("visibility", "hidden");
+                       $("#wrap-buildingMeasure").fadeIn();
+                   });
+                   break;
+
+               case "oform":
+                   $("#wrapBuildingMeasure").fadeOut("fast", "swing", function () {
+                       $("#buildingMeasureIMG").attr("src", "img/buildingMeasures/o-foermig.png");
+                       $("#siteAlabel").css("visibility", "visible");
+                       $("#siteBlabel").css("visibility", "visible");
+                       $("#siteClabel").css("visibility", "visible");
+                       $("#siteDlabel").css("visibility", "visible");
+                       $("#siteElabel").css("visibility", "visible");
+                       $("#siteFlabel").css("visibility", "visible");
+                       $("#siteGlabel").css("visibility", "visible");
+                       $("#siteHlabel").css("visibility", "visible");
+                       $("#siteIlabel").css("visibility", "hidden");
+                       $("#siteJlabel").css("visibility", "hidden");
+                       $("#siteKlabel").css("visibility", "hidden");
+                       $("#siteLlabel").css("visibility", "hidden");
+                       $("#wrap-buildingMeasure").fadeIn();
+                   });
+                   break;
+
+               default:
+
+           }
+        }
     });
 }
 
