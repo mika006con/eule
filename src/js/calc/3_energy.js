@@ -8,6 +8,8 @@ $("#Energiedaten_btn_back").on({
 $("#Energiedaten_btn_forward").on({
     click:
         function(){
-            formShowNext(Step3Validation(), "Energiedaten", "Energiedaten");
+            formShowNext(true, "Energiedaten", "FinAnreiz");
+         //   formShowNext(Step3Validation(), "Energiedaten", "Energiedaten");
+
         }
 });

@@ -16,6 +16,9 @@ function formShowPreviouos(current, previous){
     );
 }
 
+/* ####################################################################################
+ ################################  Guided Tour ######################################
+ #################################################################################### */
 function convertString( str ){
     var isString = typeof str === 'string';
     if (isString){
@@ -68,19 +71,6 @@ function buildGAF(){
     createCanvasGAF("GAF_8", "Ergebnis", "#000000", false);
 }
 
-function addTooltips(){
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip({
-            animated: 'fade',
-            html: 'true'
-        });
-    });
-}
-
-/* ####################################################################################
- ################################  Guided Tour ######################################
- ####################################################################################
- */
 function gafSwitch(fromGAF, toGAF){
     var from = "GAF_" + fromGAF;
     var to = "GAF_" + toGAF;
@@ -110,3 +100,18 @@ function addValidationClasses(id, status){
         console.log("Wrong Status in addValidationClasses - Function");
     }
 }
+
+
+/* ####################################################################################
+ ################################  Execute Func ######################################
+ #################################################################################### */
+
+buildGAF();
+
+// Add Tooltips
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+        animated: 'fade',
+        html: 'true'
+    });
+});

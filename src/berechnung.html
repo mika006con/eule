@@ -199,8 +199,7 @@
             </div>
         </div>
 
-        <!-----------------  ####### NEW PART ###### --------------------->
-
+        <!-----------------  ####### Energiedaten ###### --------------------->
 
         <div class="container" id="Energiedaten" style="display: none;">
             <div class="form-group">
@@ -213,12 +212,61 @@
                 <br/>
                 <input class="input-group-sm" id="Ausweis" type="text" size="50"
                        title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="bottom">
-
                 <br />
+                <label for="locationStreet">Kalkulationszins:</label>
+                <br/>
+                <input class="input-group-sm" id="CalcInterest" type="number" step="0.01" size="50"
+                       title="Kalkulationszinssatz in Prozent (%) p.a." data-toggle="tooltip" data-placement="bottom">
+                <br/>
+                <label for="locationStreet">Preissteigerung Strom:</label>
+                <br/>
+                <input class="input-group-sm" id="CalcPriceIncreaseElectric" type="number" step="0.1" size="50"
+                       title="Preissteigerung Elektrizität in Prozent (%) p.a." data-toggle="tooltip" data-placement="bottom">
+                <br/>
+                <label for="locationStreet">Preissteigerung Energie:</label>
+                <br/>
+                <input class="input-group-sm" id="CalcPriceIncreaseHeating" type="number" step="0.1" size="50"
+                       title="Preissteigerung Heizenergie in Prozent (%) p.a." data-toggle="tooltip" data-placement="bottom">
+                <br/>
             </div>
             <div class="col-md-12">
                 <button id="Energiedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
                 <button id="Energiedaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+            </div>
+        </div>
+
+        <!-----------------  ####### Fin. Anreiz ###### --------------------->
+
+        <div class="container" id="FinAnreiz" style="display: none;">
+            <div class="form-group">
+                <div id="showCalcInterestDIV" class="form-group has-feedback">
+                    <label class="control-label" for="showCalcInterest">Kalkulationszins:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="showCalcInterest" type="number" min="0" size="50"
+                           step="0.1" title="Kalkulationszinssatz" data-toggle="tooltip" data-placement="bottom"
+                            readonly>
+                    <span id="showCalcInterestSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="finToEmployeesDIV" class="form-group has-feedback">
+                    <label class="control-label" for="finToEmployees">Beteiligung in Prozent(%):</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="finToEmployees" type="number" min="0" size="50"
+                           value="0.00" step="0.01" title="Beteiligung der MitarbeiterInnen an Energieeinsparungen"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="finToEmployeesSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="finSaveEnergyPADIV" class="form-group has-feedback">
+                    <label class="control-label" for="finSaveEnergyPA">Erwartete Einsparung in kWh p.a.:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="finSaveEnergyPA" type="number" min="0" size="50"
+                           value="0" step="1" title="Erwartete Energieeinsparungen in kWh pro Jahr"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="finSaveEnergyPASPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button id="FinAnreiz_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                <button id="FinAnreiz_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
             </div>
         </div>
 
@@ -246,6 +294,10 @@
 <script type="text/javascript" src="js/calc/0_common.js"></script>
 <script type="text/javascript" src="js/calc/1_address.js"></script>
 <script type="text/javascript" src="js/calc/2_building.js"></script>
+<script type="text/javascript" src="js/calc/3_energy.js"></script>
+<script type="text/javascript" src="js/calc/4_automatize.js"></script>
+<script type="text/javascript" src="js/calc/5_education.js"></script>
+<script type="text/javascript" src="js/calc/6_financial.js"></script>
 <script type="text/javascript" src="js/berechnung.js"></script>
 </body>
 </html>

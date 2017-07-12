@@ -20,11 +20,3 @@ function calcCapitalValue( _Et, _At, _i, _n){
         c0 += (_Et[i] - _At[i]) * Math.pow(1+i, -i);
     }
 }
-
-
-function executeBerechnung() {
-    buildGAF();
-    addTooltips();
-}
-
-executeBerechnung();
