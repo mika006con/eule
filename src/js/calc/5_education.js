@@ -1,3 +1,13 @@
-/**
- * Created by Kanni on 12.07.17.
- */
+
+$("#Schulung_btn_back").on({
+    click:
+        function(){
+            formShowPreviouos("Schulung", "Automatize");
+        }
+});
+$("#Schulung_btn_forward").on({
+    click:
+        function(){
+            formShowNext(true, "Schulung", "FinAnreiz");
+        }
+});

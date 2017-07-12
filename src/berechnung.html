@@ -5,6 +5,8 @@
     <!-- Bootstrap 3.3.7 -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.min.css">
+    <!-- Bootstrap Select -->
+    <link rel="stylesheet" href="../lib/bootstrap-select-1.12.3/dist/css/bootstrap-select.min.css">
     <!-- Optional theme -->
     <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-theme.min.css">
     <!-- Custom Stylesheets -->
@@ -38,7 +40,7 @@
         </div>
 
         <!-----------------  ####### Grunddaten Adresse ###### --------------------->
-        <div class="container" id="Grunddaten">
+        <div class="container" id="Grunddaten" style="display: none;">
             <div class="form-group">
                 <label class="control-label" for="locationAutocomplete">Adresse:</label>
                 <br/>
@@ -93,7 +95,6 @@
             </div>
         </div>
 
-
         <!-----------------  ####### Gebäudedaten ###### --------------------->
         <div class="container" id="Gebäudedaten" style="display: none;">
             <div class="form-group">
@@ -146,51 +147,52 @@
                                 <img id="buildingMeasureIMG" style="width: 90%; max-width: 200px; max-height: 200px;" src='img/buildingMeasures/h-foermig.png'/>
                             </div>
                             <div id="buildingMeasureValues" style="width: 40%; display: block;">
-                                <label id="siteAlabel" class="control-label" for="siteA" style="visibility: hidden;">A:
+                                <label id="siteAlabel" class="control-label" for="siteA" style="visibility: hidden;">A (m):
                                 <input class="input-group-sm form-control" id="siteA" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite A" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteBlabel" class="control-label" for="siteB" style="visibility: hidden;">B:
+                                       title="Länge der Seite A (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteBlabel" class="control-label" for="siteB" style="visibility: hidden;">B (m):
                                 <input class="input-group-sm form-control" id="siteB" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite B" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteClabel" class="control-label" for="siteC" style="visibility: hidden;">C:
+                                       title="Länge der Seite B (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteClabel" class="control-label" for="siteC" style="visibility: hidden;">C (m):
                                 <input class="input-group-sm form-control" id="siteC" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite C" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteDlabel" class="control-label" for="siteD" style="visibility: hidden;">D:
+                                       title="Länge der Seite C (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteDlabel" class="control-label" for="siteD" style="visibility: hidden;">D (m):
                                 <input class="input-group-sm form-control" id="siteD" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite D" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteElabel" class="control-label" for="siteE" style="visibility: hidden;">E:
+                                       title="Länge der Seite D (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteElabel" class="control-label" for="siteE" style="visibility: hidden;">E (m):
                                 <input class="input-group-sm form-control" id="siteE" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite E" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteFlabel" class="control-label" for="siteF" style="visibility: hidden;">F:
+                                       title="Länge der Seite E (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteFlabel" class="control-label" for="siteF" style="visibility: hidden;">F (m):
                                 <input class="input-group-sm form-control" id="siteF" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite F" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteGlabel" class="control-label" for="siteG" style="visibility: hidden;">G:
+                                       title="Länge der Seite F (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteGlabel" class="control-label" for="siteG" style="visibility: hidden;">G (m):
                                 <input class="input-group-sm form-control" id="siteG" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite G" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteHlabel" class="control-label" for="siteH" style="visibility: hidden;">H:
+                                       title="Länge der Seite G (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteHlabel" class="control-label" for="siteH" style="visibility: hidden;">H (m):
                                 <input class="input-group-sm form-control" id="siteH" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite H" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteIlabel" class="control-label" for="siteI" style="visibility: hidden;">I:
+                                       title="Länge der Seite H (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteIlabel" class="control-label" for="siteI" style="visibility: hidden;">I (m):
                                 <input class="input-group-sm form-control" id="siteI" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite I" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteJlabel" class="control-label" for="siteJ" style="visibility: hidden;">J:
+                                       title="Länge der Seite I (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteJlabel" class="control-label" for="siteJ" style="visibility: hidden;">J (m):
                                 <input class="input-group-sm form-control" id="siteJ" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite J" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteKlabel" class="control-label" for="siteK" style="visibility: hidden;">K:
+                                       title="Länge der Seite J (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteKlabel" class="control-label" for="siteK" style="visibility: hidden;">K (m):
                                 <input class="input-group-sm form-control" id="siteK" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite K" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteLlabel"l class="control-label" for="siteL" style="visibility: hidden;">L:
+                                       title="Länge der Seite K (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
+                                <label id="siteLlabel"l class="control-label" for="siteL" style="visibility: hidden;">L (m):
                                 <input class="input-group-sm form-control" id="siteL" type="number" step="0.01" min="0" size="10"
-                                       title="Länge der Seite L" data-toggle="tooltip" data-placement="bottom"></label>
+                                       title="Länge der Seite L (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <label for="upperStories">Stockwerte:</label>
+                <label for="upperStories">Anzahl der Geschosse:</label>
                 <br/>
-                <input class="form-control input-group-sm" id="upperStories" type="text" size="50"
-                       title="Stockwerke des Objektes, Erdgeschoss zählt als 1 Stockwerk" data-toggle="tooltip" data-placement="bottom">
+                <input class="form-control input-group-sm" id="upperStories" type="text" size="50" step="1"
+                       title="Stockwerke des Objektes, Keller und Erdgeschoss zählen als je 1 Stockwerk"
+                       data-toggle="tooltip" data-placement="bottom">
                 <br />
             </div>
             <div class="col-md-12">
@@ -200,34 +202,180 @@
         </div>
 
         <!-----------------  ####### Energiedaten ###### --------------------->
-
         <div class="container" id="Energiedaten" style="display: none;">
-            <div class="form-group">
-                <label for="locationStreet">Energie:</label>
-                <br/>
-                <input class="input-group-sm" id="Energie" type="text" size="50"
-                       title="Straße des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <br/>
-                <label for="locationHouseID">Ausweis:</label>
-                <br/>
-                <input class="input-group-sm" id="Ausweis" type="text" size="50"
-                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <br />
-                <label for="locationStreet">Kalkulationszins:</label>
-                <br/>
-                <input class="input-group-sm" id="CalcInterest" type="number" step="0.01" size="50"
-                       title="Kalkulationszinssatz in Prozent (%) p.a." data-toggle="tooltip" data-placement="bottom">
-                <br/>
-                <label for="locationStreet">Preissteigerung Strom:</label>
-                <br/>
-                <input class="input-group-sm" id="CalcPriceIncreaseElectric" type="number" step="0.1" size="50"
-                       title="Preissteigerung Elektrizität in Prozent (%) p.a." data-toggle="tooltip" data-placement="bottom">
-                <br/>
-                <label for="locationStreet">Preissteigerung Energie:</label>
-                <br/>
-                <input class="input-group-sm" id="CalcPriceIncreaseHeating" type="number" step="0.1" size="50"
-                       title="Preissteigerung Heizenergie in Prozent (%) p.a." data-toggle="tooltip" data-placement="bottom">
-                <br/>
+            <div class="col-md-12" id="wrapEnergy" style="display:inline-block;">
+                <div class="form-group">
+                    <div class="col-md-6" style="display: flex; justify-content: space-between;">
+                        <div id="energySourceElecDIV" class="form-group has-feedback">
+                            <label class="control-label" for="energySourceElec">Energiequelle Strom:</label>
+                            <br/>
+                            <select class="selectpicker" name="energySourceElec" id="energySourceElec"
+                                    size="50" title="Energiequelle für die Stromversorgung"
+                                    data-toggle="tooltip" data-placement="bottom">
+                                <optgroup label="Fossible Energie">
+                                    <option value="steinkohle">Steinkohle</option>
+                                    <option value="braunkohle">Braunkohle</option>
+                                    <option value="erdgas">Erdgas</option>
+                                    <option value="erdoil">Erdöl</option>
+                                </optgroup>
+                                <optgroup label="Regenerative Energie">
+                                    <option value="biomasse">Biomasse</option>
+                                    <option value="windenergie">Windenergie</option>
+                                    <option value="wasserkraft">Wasserkraft</option>
+                                    <option value="geothermie">Geothermie/Erdwärme</option>
+                                </optgroup>
+                                <optgroup label="Sonstiges">
+                                    <option value="fernwaerme">Fernwärme</option>
+                                    <option value="kernenergie">Kernenergie</option>
+                                    <option value="unbekannt" selected>Unbekannt</option>
+                                </optgroup>
+                            </select>
+                            <span id="energySourceElecSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="energySolarElecDIV" class="form-group has-feedback" style="display: none;">
+                            <label class="control-label" for="energySolarElec">Solaranteil Strom (%):</label>
+                            <input class="input-group-sm  form-control" id="energySolarElec" type="number" size="20" step="0.1"
+                                   title="Der Anteil der Stromerzeugung durch gewonnene Solarenergie" value="0.0"
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="energySolarElecSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6" style="display: flex; justify-content: space-between;">
+                        <div id="energySourceHeatDIV" class="form-group has-feedback">
+                            <label class="control-label" for="energySourceElec">Energiequelle Wärme:</label>
+                            <br/>
+                            <select class="selectpicker" name="energySourceElec" id="energySourceHeat"
+                                    size="50" title="Energiequelle für die Wärmeerzeugung"
+                                    data-toggle="tooltip" data-placement="bottom">
+
+                                <optgroup label="Fossible Energie">
+                                    <option value="steinkohle">Steinkohle</option>
+                                    <option value="braunkohle">Braunkohle</option>
+                                    <option value="erdgas">Erdgas</option>
+                                    <option value="erdoil">Erdöl</option>
+                                </optgroup>
+                                <optgroup label="Regenerative Energie">
+                                    <option value="biomasse">Biomasse</option>
+                                    <option value="windenergie">Windenergie</option>
+                                    <option value="wasserkraft">Wasserkraft</option>
+                                    <option value="geothermie">Geothermie/Erdwärme</option>
+                                </optgroup>
+                                <optgroup label="Sonstiges">
+                                    <option value="kernenergie">Kernenergie</option>
+                                    <option value="unbekannt" selected>Unbekannt</option>
+                                </optgroup>
+                            </select>
+                            <span id="energySourceHeatSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="energySolarHeatDIV" class="form-group has-feedback" style="display: none;">
+                            <label class="control-label" for="energySolarHeat">Solaranteil Wärme (%):</label>
+                            <input class="input-group-sm  form-control" id="energySolarHeat" type="number" size="20" step="0.1"
+                                   title="Der Anteil der Wärmeerzeugung durch gewonnene Solarenergie." value="0.0"
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="energySolarHeatSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                    <br/>
+                    <div id="energyCostElecDIV" class="col-md-6 form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="energyCostElec">Bezugspreis Strom (€/kWh):</label>
+                            <label><input type="checkbox">unbekannt</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="energyCostElec" type="number" size="20" step="0.01" value="0.22"
+                               title="Bezugspreis Strom in Euro pro verbrauchter Kilowattstunde(kWh).
+                                   Der hinterlegte Wert dient als Orientierungswert aus aktuellen statistischen Erhebungen"
+                               data-toggle="tooltip" data-placement="bottom" min="0">
+                        <span id="energyCostElecSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="energyCostHeatDIV" class="col-md-6 form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="energyCostHeat">Bezugspreis Wärme (€/kWh):</label>
+                            <label><input type="checkbox">unbekannt</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="energyCostHeat" type="number" size="20" step="0.01" value="0.22"
+                               title="Bezugspreis Wärmeenergie in Euro pro verbrauchter Kilowattstunde(kWh).
+                               Der hinterlegte Wert dient als Orientierungswert aus aktuellen statistischen Erhebungen"
+                               data-toggle="tooltip" data-placement="bottom" min="0">
+                        <span id="energyCostHeatSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <br/>
+                    <div id="energyCostIncreaseElecDIV" class="col-md-6 form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="energyCostIncreaseElec">Erwartete Preissteigerung Strom in Prozent(%) p.a.:</label>
+                            <label><input type="checkbox">unbekannt</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="energyCostIncreaseElec" type="number" size="20" step="0.01"
+                               title="Die erwartete Preissteigerungsrate p.a. für den Bezugspreis von Strom in Prozent(%)
+                                Ist Ihnen kein Wert bekannt, wird mit 2% p.a. gerechnet." value="0.02"
+                               data-toggle="tooltip" data-placement="bottom" min="0">
+                        <span id="energyCostIncreaseElecSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="energyCostIncreaseHeatDIV" class="col-md-6 form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="energyCostIncreaseHeat">Erwartete Preissteigerung Wärme in Prozent(%) p.a.:</label>
+                            <label><input type="checkbox">unbekannt</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="energyCostIncreaseHeat" type="number" size="20" step="0.01"
+                               title="Die erwartete Preissteigerungsrate p.a. für den Bezugspreis von Wärme in Prozent(%)
+                                      Ist Ihnen kein Wert bekannt, wird mit 2% p.a. gerechnet." value="0.02"
+                               data-toggle="tooltip" data-placement="bottom" min="0">
+                        <span id="energyCostIncreaseHeatSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <br/>
+                    <div id="energyUsageElecDIV" class="col-md-6 form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="energyUsageElec">Energieverbrauch Strom (kWh/Jahr):</label>
+                            <label><input type="checkbox">unbekannt</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="energyUsageElec" type="number" size="20" step="1"
+                               title="Der Jahresverbrauch an Strom in Kilowattstunden (kWh)." value="0"
+                               data-toggle="tooltip" data-placement="bottom" min="0">
+                        <span id="energyUsageElecSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="energyUsageHeatDIV" class="col-md-6 form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="energyUsageHeat">Energieverbrauch Wärme (kWh/Jahr):</label>
+                            <label><input type="checkbox">unbekannt</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="energyUsageHeat" type="number" size="20" step="1"
+                               title="Der Jahresverbrauch an Wärme/Heizung in Kilowattstunden (kWh)." value="0"
+                               data-toggle="tooltip" data-placement="bottom" min="0">
+                        <span id="energyUsageHeatSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                </div>
+                <div id="userBehaviour" class="col-md-12">
+                    <label class="control-label">Nutzerverhalten</label>
+                    <br/>
+                    <p>Im Folgenden ist das Nutzerverhalten der Beschäftigten anzugeben. <br/>Hierbei wird in die Kategorien
+                    "Verschwender", "Durchschnittsverbraucher" und "Energiesparer" unterschieden.</p>
+
+                    <div class="col-md-12" style="display: flex; justify-content: space-between;">
+                        <div id="redBehaviourDIV" class="form-group has-feedback">
+                            <label class="control-label" for="redBehaviour">Anteil Verschwender (%):</label>
+                            <br/>
+                            <input class="input-group-sm form-control" id="redBehaviour" type="number" min="0" size="50" value="33.33"
+                                   step="0.01" title="Prozentualer Anteil an Beschäftigten, die ein geringes Umweltbewusstsein pflegen
+                                   und Energieeinsparung unwichtig ist." data-toggle="tooltip" data-placement="bottom">
+                            <span id="redBehaviourSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="blueBehaviourDIV" class="form-group has-feedback">
+                            <label class="control-label" for="blueBehaviour">Anteil Durchschnittverbraucher (%):</label>
+                            <br/>
+                            <input class="input-group-sm form-control" id="blueBehaviour" type="number" min="0" size="50" value="33.33"
+                                   step="0.01" title="Prozentualer Anteil an Beschäftigten, die ein durchschnittliches Umweltbewusstsein pflegen
+                                   und gelegentlich motiviert sind, Energie einzusparen." data-toggle="tooltip" data-placement="bottom">
+                            <span id="blueBehaviourSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="greenBehaviourDIV" class="form-group has-feedback">
+                            <label class="control-label" for="greenBehaviour">Anteil Energiesparer (%):</label>
+                            <br/>
+                            <input class="input-group-sm form-control" id="greenBehaviour" type="number" min="0" size="50" value="33.33"
+                                   step="0.01" title="Prozentualer Anteil an Beschäftigten, die ein hohes Umweltbewusstsein pflegen
+                                   und motiviert sind, Energie einzusparen." data-toggle="tooltip" data-placement="bottom">
+                            <span id="greenBehaviourSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-12">
                 <button id="Energiedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
@@ -235,10 +383,97 @@
             </div>
         </div>
 
-        <!-----------------  ####### Fin. Anreiz ###### --------------------->
+        <!-----------------  ####### Automatisierung ###### --------------------->
+        <div class="container" id="Automatize" style="display: none;">
+            <label><input type="checkbox">Automatisierung kalkulieren</label>
 
+            <div class="form-group" id="Automatize_content" style="display: block; margin-top: 10px;">
+                <div id="automatizeCostDIV" class="form-group has-feedback">
+                    <label class="control-label" for="automatizeCost">Anschaffungskosten (€):</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="automatizeCost" type="number" min="0" size="50"
+                           step="1" title="Anschaffungs- und Installationskosten der Anlage in Euro" value="0"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="automatizeCostSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="automatizeUsageDIV" class="form-group has-feedback">
+                    <label class="control-label" for="automatizeUsage">Nutzungsdauer in Jahren:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="automatizeUsage" type="number" min="0" size="50"
+                           value="10" step="1" title="Voraussichtliche Nutzungsdauer der Automatisierungsanlage in Jahren"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="automatizeUsageSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="automatizeMaintanenceDIV" class="form-group has-feedback">
+                    <label class="control-label" for="automatizeMaintanence">Wartungskosten pro Jahr (€):</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="automatizeMaintanence" type="number" min="0" size="50"
+                           value="0" step="1" title="Jährlich anfallende Wartungskosten der Anlage in Euro."
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="automatizeMaintanenceSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="automatizeElecDIV" class="form-group has-feedback">
+                    <label class="control-label" for="automatizeElec">Zusätzlicher Stromverbrauch pro Jahr (kWh):</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="automatizeElec" type="number" min="0" size="50"
+                           value="0" step="1" title="Stromverbrauch durch den Betrieb der Anlage pro Jahr entsteht in Kilowattstunden (kWh)."
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="automatizeElecSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="automatizeSaveDIV" class="form-group has-feedback">
+                    <label class="control-label" for="automatizeSave">Einsparung pro Jahr !TODO!:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="automatizeSave" type="number" min="0" size="50"
+                           value="0" step="1" title="Voraussichtliche Einsparung an Energie pro Jahr"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="automatizeSaveSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button id="Automatize_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                <button id="Automatize_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+            </div>
+        </div>
+
+        <!-----------------  ####### Schulung ###### --------------------->
+        <div class="container" id="Schulung" style="display: block;">
+            <label><input type="checkbox">Schulungsmaßnahmen kalkulieren</label>
+            <div class="form-group" id="Schulung_content" style="display: block; margin-top: 10px;">
+                <div id="showCsasdalcInterestDIV" class="form-group has-feedback">
+                    <label class="control-label" for="showCalcInterest">SCHULUNG:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="showCalcI12321nterest" type="number" min="0" size="50"
+                           step="0.1" title="Kalkulationszinssatz" data-toggle="tooltip" data-placement="bottom"
+                           readonly>
+                    <span id="showasdasCalcInterestSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="finToEmplasdsadoyeesDIV" class="form-group has-feedback">
+                    <label class="control-label" for="finToEmployees">SCHULUNG):</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="finasdasdToEmployees" type="number" min="0" size="50"
+                           value="0.00" step="0.01" title="Beteiligung der MitarbeiterInnen an Energieeinsparungen"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="finToEmploasdyeesSPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+                <div id="finSaveEnerg123123yPADIV" class="form-group has-feedback">
+                    <label class="control-label" for="finSaveEnergyPA">SCHULUNG</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="finSaveE123123ergyPA" type="number" min="0" size="50"
+                           value="0" step="1" title="Erwartete Energieeinsparungen in kWh pro Jahr"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="finSaveEn123123ergyPASPAN" class="glyphicon form-control-feedback"></span>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <button id="Schulung_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                <button id="Schulung_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+            </div>
+        </div>
+
+        <!-----------------  ####### Fin. Anreiz ###### --------------------->
         <div class="container" id="FinAnreiz" style="display: none;">
-            <div class="form-group">
+            <label><input type="checkbox">Finanzielles Anreizsystem kalkulieren</label>
+            <div class="form-group" id="FinAnreiz_content" style="display: none; margin-top: 10px;">
                 <div id="showCalcInterestDIV" class="form-group has-feedback">
                     <label class="control-label" for="showCalcInterest">Kalkulationszins:</label>
                     <br/>
@@ -288,6 +523,7 @@
 <script src="../lib/jquery_ui/jquery-ui.min.js"></script>
 <!-- JQuery formvalidator -->
 <script src="../lib/jquery/jquery-formvalidator.min.js"></script>
+<script src="../lib/bootstrap-select-1.12.3/dist/js/bootstrap-select.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 <!-- Custom Script Files -->
