@@ -140,12 +140,12 @@
                            data-toggle="tooltip" data-placement="bottom">
                         <input type="radio" name="buildingType" value="oform">O-Förmig</label>
                     <br/><br/>
-                    <div id="wrapBuildingMeasure" style="display: block;">
+                    <div id="wrapBuildingMeasure" style="display: none;">
                         <div id="buildingMeasure" style="width: 100%; display: flex; flex-direction: row; flex-wrap: wrap;">
-                            <div id="buildingMeasurePicture" style="width: 60%; display: none;" >
+                            <div id="buildingMeasurePicture" style="width: 60%; display: block;" >
                                 <img id="buildingMeasureIMG" style="width: 90%; max-width: 200px; max-height: 200px;" src='img/buildingMeasures/h-foermig.png'/>
                             </div>
-                            <div id="buildingMeasureValues" style="width: 40%; display: none;">
+                            <div id="buildingMeasureValues" style="width: 40%; display: block;">
                                 <label id="siteAlabel" class="control-label" for="siteA" style="visibility: hidden;">A:
                                 <input class="input-group-sm form-control" id="siteA" type="number" step="0.01" min="0" size="10"
                                        title="Länge der Seite A" data-toggle="tooltip" data-placement="bottom"></label>
@@ -238,9 +238,14 @@
 <script src="../lib/jquery/jquery-3.2.1.min.js"></script>
 <!-- JQuery UI 3.2.1 -->
 <script src="../lib/jquery_ui/jquery-ui.min.js"></script>
+<!-- JQuery formvalidator -->
+<script src="../lib/jquery/jquery-formvalidator.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 <!-- Custom Script Files -->
+<script type="text/javascript" src="js/calc/0_common.js"></script>
+<script type="text/javascript" src="js/calc/1_address.js"></script>
+<script type="text/javascript" src="js/calc/2_building.js"></script>
 <script type="text/javascript" src="js/berechnung.js"></script>
 </body>
 </html>
