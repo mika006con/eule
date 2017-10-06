@@ -60,8 +60,10 @@ $("#isBuildingAddition").on({
             function () {
                 if (document.getElementById('isBuildingAddition').checked) {
                     $("#buildingYearAddDIV").fadeIn("slow");
+                    $("#buildingYearAddPercentDIV").fadeIn("slow");
                 } else {
                     $("#buildingYearAddDIV").fadeOut("slow");
+                    $("#buildingYearAddPercentDIV").fadeOut("slow");
                 }
             }
     });

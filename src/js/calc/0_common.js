@@ -78,6 +78,7 @@ function gafSwitch(fromGAF, toGAF){
     var canvasTo = document.getElementById(to);
     var ctxFrom = canvasFrom.getContext("2d");
     var ctxTo = canvasTo.getContext("2d");
+    canvasFrom.innerHTML()
 }
 
 function removeValidationClasses(id){
@@ -96,7 +97,6 @@ function addValidationClasses(id, status){
         $(id + "DIV").addClass("has-error");
         $(id + "SPAN").addClass("glyphicon-remove");
     } else {
-        alert("You shit");
         console.log("Wrong Status in addValidationClasses - Function");
     }
 }

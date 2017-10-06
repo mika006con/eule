@@ -15,7 +15,31 @@
 </head>
 <body>
 
-
+    <header>
+        <!-- Navigation -->
+        <nav class="navbar navbar-default" style="margin-bottom: 0;">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">weiseEULE</a>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li id="nav_aktuelles"><a href="index.html">Aktuelles</a></li>
+                        <li id="nav_berechnung" class="active"><a href="berechnung.html">Berechnung</a></li>
+                        <li id="nav_projekt"><a href="projekt.html">Projekt</a></li>
+                        <li id="nav_kontakt"><a href="kontakt.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
 <div id="content">
 <!--------------- BEGINN OF CONTENT ------------->
@@ -96,7 +120,7 @@
         </div>
 
         <!-----------------  ####### Gebäudedaten ###### --------------------->
-        <div class="container" id="Gebäudedaten" style="display: none;">
+        <div class="container" id="Gebäudedaten" style="display: block;">
             <div class="form-group">
                 <div id="buildingYearMainDIV" class="form-group has-feedback">
                     <label class="control-label" for="buildingYearMain">Baujahr Haupthaus:</label>
@@ -110,12 +134,21 @@
                     <label><input id="isBuildingAddition" type="checkbox">Anbau vorhanden</label>
                 </div>
                 <div id="buildingYearAddDIV" class="form-group has-feedback" style="display: none;">
-                    <label class="control-label" for="buildingYearMain">Baujahr Anbau:</label>
+                    <label class="control-label" for="buildingYearAdd">Baujahr Anbau:</label>
                     <br/>
                     <input class="input-group-sm form-control" id="buildingYearAdd" type="number" min="1800" size="50"
                            title="Baujahr des Anbaus" data-toggle="tooltip" data-placement="bottom"
                            data-validation="date" data-validation-format="yyyy">
                     <span id="buildingYearAddSPAN" class="glyphicon form-control-feedback"></span>
+                    <br/>
+                </div>
+                <div id="buildingYearAddPercentDIV" class="form-group has-feedback" style="display: none;">
+                    <label class="control-label" for="buildingYearAddPercent">Prozentualer (%) Anteil des Anbaus am Gebäude:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="buildingYearAddPercent" type="number" min="0" max="100" size="50"
+                           title="Baujahr des Anbaus" data-toggle="tooltip" data-placement="bottom"
+                           data-validation="date" data-validation-format="yyyy">
+                    <span id="buildingYearAddPercentSPAN" class="glyphicon form-control-feedback"></span>
                     <br/>
                 </div>
                 <br />
@@ -213,21 +246,21 @@
                                     size="50" title="Energiequelle für die Stromversorgung"
                                     data-toggle="tooltip" data-placement="bottom">
                                 <optgroup label="Fossible Energie">
-                                    <option value="steinkohle">Steinkohle</option>
-                                    <option value="braunkohle">Braunkohle</option>
-                                    <option value="erdgas">Erdgas</option>
-                                    <option value="erdoil">Erdöl</option>
+                                    <option value="Steinkohle">Steinkohle</option>
+                                    <option value="Braunkohle">Braunkohle</option>
+                                    <option value="Erdgas">Erdgas</option>
+                                    <option value="Erdöl">Erdöl</option>
                                 </optgroup>
                                 <optgroup label="Regenerative Energie">
-                                    <option value="biomasse">Biomasse</option>
-                                    <option value="windenergie">Windenergie</option>
-                                    <option value="wasserkraft">Wasserkraft</option>
-                                    <option value="geothermie">Geothermie/Erdwärme</option>
+                                    <option value="Biomasse">Biomasse</option>
+                                    <option value="Windenergie">Windenergie</option>
+                                    <option value="Wasserkraft">Wasserkraft</option>
+                                    <option value="Geothermie">Geothermie/Erdwärme</option>
                                 </optgroup>
                                 <optgroup label="Sonstiges">
-                                    <option value="fernwaerme">Fernwärme</option>
-                                    <option value="kernenergie">Kernenergie</option>
-                                    <option value="unbekannt" selected>Unbekannt</option>
+                                    <option value="Fernwärme">Fernwärme</option>
+                                    <option value="Kernenergie">Kernenergie</option>
+                                    <option value="Unbekannt" selected>Unbekannt</option>
                                 </optgroup>
                             </select>
                             <span id="energySourceElecSPAN" class="glyphicon form-control-feedback"></span>
@@ -249,20 +282,20 @@
                                     data-toggle="tooltip" data-placement="bottom">
 
                                 <optgroup label="Fossible Energie">
-                                    <option value="steinkohle">Steinkohle</option>
-                                    <option value="braunkohle">Braunkohle</option>
-                                    <option value="erdgas">Erdgas</option>
-                                    <option value="erdoil">Erdöl</option>
+                                    <option value="Steinkohle">Steinkohle</option>
+                                    <option value="Braunkohle">Braunkohle</option>
+                                    <option value="Erdgas">Erdgas</option>
+                                    <option value="Erdöl">Erdöl</option>
                                 </optgroup>
                                 <optgroup label="Regenerative Energie">
-                                    <option value="biomasse">Biomasse</option>
-                                    <option value="windenergie">Windenergie</option>
-                                    <option value="wasserkraft">Wasserkraft</option>
-                                    <option value="geothermie">Geothermie/Erdwärme</option>
+                                    <option value="Biomasse">Biomasse</option>
+                                    <option value="Windenergie">Windenergie</option>
+                                    <option value="Wasserkraft">Wasserkraft</option>
+                                    <option value="Geothermie">Geothermie/Erdwärme</option>
                                 </optgroup>
                                 <optgroup label="Sonstiges">
-                                    <option value="kernenergie">Kernenergie</option>
-                                    <option value="unbekannt" selected>Unbekannt</option>
+                                    <option value="Kernenergie">Kernenergie</option>
+                                    <option value="Unbekannt" selected>Unbekannt</option>
                                 </optgroup>
                             </select>
                             <span id="energySourceHeatSPAN" class="glyphicon form-control-feedback"></span>
@@ -279,45 +312,47 @@
                     <div id="energyCostElecDIV" class="col-md-6 form-group has-feedback">
                         <div style="display: flex; justify-content: space-between;">
                             <label class="control-label" for="energyCostElec">Bezugspreis Strom (€/kWh):</label>
-                            <label><input type="checkbox">unbekannt</label>
+                            <label><input id="checkUnknown_CostElec" type="checkbox">unbekannt</label>
                         </div>
-                        <input class="input-group-sm  form-control" id="energyCostElec" type="number" size="20" step="0.01" value="0.22"
+                        <input class="input-group-sm  form-control" id="energyCostElec" type="number" size="20" step="0.01" value="0.25"
                                title="Bezugspreis Strom in Euro pro verbrauchter Kilowattstunde(kWh).
                                    Der hinterlegte Wert dient als Orientierungswert aus aktuellen statistischen Erhebungen"
-                               data-toggle="tooltip" data-placement="bottom" min="0">
+                               data-toggle="tooltip" data-placement="bottom" min="0"
+                               data-validation="number">
                         <span id="energyCostElecSPAN" class="glyphicon form-control-feedback"></span>
                     </div>
                     <div id="energyCostHeatDIV" class="col-md-6 form-group has-feedback">
                         <div style="display: flex; justify-content: space-between;">
                             <label class="control-label" for="energyCostHeat">Bezugspreis Wärme (€/kWh):</label>
-                            <label><input type="checkbox">unbekannt</label>
+                            <label><input id="checkUnknown_CostHeat" type="checkbox">unbekannt</label>
                         </div>
-                        <input class="input-group-sm  form-control" id="energyCostHeat" type="number" size="20" step="0.01" value="0.22"
+                        <input class="input-group-sm  form-control" id="energyCostHeat" type="number" size="20" step="0.01" value="0.10"
                                title="Bezugspreis Wärmeenergie in Euro pro verbrauchter Kilowattstunde(kWh).
                                Der hinterlegte Wert dient als Orientierungswert aus aktuellen statistischen Erhebungen"
-                               data-toggle="tooltip" data-placement="bottom" min="0">
+                               data-toggle="tooltip" data-placement="bottom" min="0"
+                               data-validation="number">
                         <span id="energyCostHeatSPAN" class="glyphicon form-control-feedback"></span>
                     </div>
                     <br/>
                     <div id="energyCostIncreaseElecDIV" class="col-md-6 form-group has-feedback">
                         <div style="display: flex; justify-content: space-between;">
                             <label class="control-label" for="energyCostIncreaseElec">Erwartete Preissteigerung Strom in Prozent(%) p.a.:</label>
-                            <label><input type="checkbox">unbekannt</label>
+                            <label><input id="energyCostIncreaseElec_Unknown" type="checkbox">unbekannt</label>
                         </div>
                         <input class="input-group-sm  form-control" id="energyCostIncreaseElec" type="number" size="20" step="0.01"
                                title="Die erwartete Preissteigerungsrate p.a. für den Bezugspreis von Strom in Prozent(%)
-                                Ist Ihnen kein Wert bekannt, wird mit 2% p.a. gerechnet." value="0.02"
+                                Ist Ihnen kein Wert bekannt, wird mit 2% p.a. gerechnet." value="2.00"
                                data-toggle="tooltip" data-placement="bottom" min="0">
                         <span id="energyCostIncreaseElecSPAN" class="glyphicon form-control-feedback"></span>
                     </div>
                     <div id="energyCostIncreaseHeatDIV" class="col-md-6 form-group has-feedback">
                         <div style="display: flex; justify-content: space-between;">
                             <label class="control-label" for="energyCostIncreaseHeat">Erwartete Preissteigerung Wärme in Prozent(%) p.a.:</label>
-                            <label><input type="checkbox">unbekannt</label>
+                            <label><input id="energyCostIncreaseHeat_Unknown" type="checkbox">unbekannt</label>
                         </div>
                         <input class="input-group-sm  form-control" id="energyCostIncreaseHeat" type="number" size="20" step="0.01"
                                title="Die erwartete Preissteigerungsrate p.a. für den Bezugspreis von Wärme in Prozent(%)
-                                      Ist Ihnen kein Wert bekannt, wird mit 2% p.a. gerechnet." value="0.02"
+                                      Ist Ihnen kein Wert bekannt, wird mit 2% p.a. gerechnet." value="2.00"
                                data-toggle="tooltip" data-placement="bottom" min="0">
                         <span id="energyCostIncreaseHeatSPAN" class="glyphicon form-control-feedback"></span>
                     </div>
@@ -325,7 +360,7 @@
                     <div id="energyUsageElecDIV" class="col-md-6 form-group has-feedback">
                         <div style="display: flex; justify-content: space-between;">
                             <label class="control-label" for="energyUsageElec">Energieverbrauch Strom (kWh/Jahr):</label>
-                            <label><input type="checkbox">unbekannt</label>
+                            <label><input id="energyUsageElecUnknown" type="checkbox">unbekannt</label>
                         </div>
                         <input class="input-group-sm  form-control" id="energyUsageElec" type="number" size="20" step="1"
                                title="Der Jahresverbrauch an Strom in Kilowattstunden (kWh)." value="0"
@@ -335,7 +370,7 @@
                     <div id="energyUsageHeatDIV" class="col-md-6 form-group has-feedback">
                         <div style="display: flex; justify-content: space-between;">
                             <label class="control-label" for="energyUsageHeat">Energieverbrauch Wärme (kWh/Jahr):</label>
-                            <label><input type="checkbox">unbekannt</label>
+                            <label><input id="energyUsageHeatUnknown" type="checkbox">unbekannt</label>
                         </div>
                         <input class="input-group-sm  form-control" id="energyUsageHeat" type="number" size="20" step="1"
                                title="Der Jahresverbrauch an Wärme/Heizung in Kilowattstunden (kWh)." value="0"
@@ -385,50 +420,118 @@
 
         <!-----------------  ####### Automatisierung ###### --------------------->
         <div class="container" id="Automatize" style="display: none;">
-            <label><input type="checkbox">Automatisierung kalkulieren</label>
+            <label><input id="check_calc_automatize" type="checkbox">Automatisierung kalkulieren</label>
 
-            <div class="form-group" id="Automatize_content" style="display: block; margin-top: 10px;">
-                <div id="automatizeCostDIV" class="form-group has-feedback">
-                    <label class="control-label" for="automatizeCost">Anschaffungskosten (€):</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="automatizeCost" type="number" min="0" size="50"
-                           step="1" title="Anschaffungs- und Installationskosten der Anlage in Euro" value="0"
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="automatizeCostSPAN" class="glyphicon form-control-feedback"></span>
-                </div>
-                <div id="automatizeUsageDIV" class="form-group has-feedback">
-                    <label class="control-label" for="automatizeUsage">Nutzungsdauer in Jahren:</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="automatizeUsage" type="number" min="0" size="50"
-                           value="10" step="1" title="Voraussichtliche Nutzungsdauer der Automatisierungsanlage in Jahren"
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="automatizeUsageSPAN" class="glyphicon form-control-feedback"></span>
-                </div>
-                <div id="automatizeMaintanenceDIV" class="form-group has-feedback">
-                    <label class="control-label" for="automatizeMaintanence">Wartungskosten pro Jahr (€):</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="automatizeMaintanence" type="number" min="0" size="50"
-                           value="0" step="1" title="Jährlich anfallende Wartungskosten der Anlage in Euro."
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="automatizeMaintanenceSPAN" class="glyphicon form-control-feedback"></span>
-                </div>
-                <div id="automatizeElecDIV" class="form-group has-feedback">
-                    <label class="control-label" for="automatizeElec">Zusätzlicher Stromverbrauch pro Jahr (kWh):</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="automatizeElec" type="number" min="0" size="50"
-                           value="0" step="1" title="Stromverbrauch durch den Betrieb der Anlage pro Jahr entsteht in Kilowattstunden (kWh)."
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="automatizeElecSPAN" class="glyphicon form-control-feedback"></span>
-                </div>
-                <div id="automatizeSaveDIV" class="form-group has-feedback">
-                    <label class="control-label" for="automatizeSave">Einsparung pro Jahr !TODO!:</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="automatizeSave" type="number" min="0" size="50"
-                           value="0" step="1" title="Voraussichtliche Einsparung an Energie pro Jahr"
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="automatizeSaveSPAN" class="glyphicon form-control-feedback"></span>
+            <div class="container" id="Automatize_content" style="display: none;">
+                <div class="col-md-12" id="wrapAutomatize" style="display:inline-block;">
+                    <br>
+                    <div class="form-group">
+                        <div style="display: flex; justify-content: space-between; margin: 20px">
+                            <label><input id="calc_autoElec" type="checkbox" checked>Maßnahme Elektroverbrauch</label>
+                            <label><input id="calc_autoHeatManual" type="checkbox" checked>Maßnahme Wärmeverbrauch</label>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <!-- ## Reihe 1 ## -->
+                        <div id="ElecAuto_SavingsDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="ElecAuto_Savings">Erwartete Einsparung an el. Energie in Prozent(%) p.a.:</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="ElecAuto_Savings" type="number" size="20" step="0.01" value="25.00"
+                                   title="Prozentuale Einsparung an elektrischer Energie relativ zur Eingabe in 'Energiedaten ->
+                                   Energieverbrauch Strom (kWh/Jahr)'"
+                                   data-toggle="tooltip" data-placement="bottom" min="0"
+                                   data-validation="number">
+                            <span id="ElecAuto_SavingsSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="HeatAuto_SavingsDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="HeatAuto_Savings">Erwartete Einsparung an Heizenergie in Prozent(%) p.a.:</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="HeatAuto_Savings" type="number" size="20" step="0.01" value="25.00"
+                                   title="Prozentuale Einsparung an elektrischer Energie relativ zur Eingabe in 'Energiedaten ->
+                                   Energieverbrauch Wärme (kWh/Jahr)'"
+                                   data-toggle="tooltip" data-placement="bottom" min="0"
+                                   data-validation="number">
+                            <span id="HeatAuto_SavingsSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <br/>
+                        <!-- ## Reihe 2 ## -->
+                        <div id="ElecAuto_Savings_AbsDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="ElecAuto_Savings_Abs">Erwartete Einsparung an el. Energie in kWh p.a.</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="ElecAuto_Savings_Abs" type="number" size="20" step="0.01"
+                                   title="Der absolute Wert der erwarteten Einsparung an elektrischer Energie. Berechnet
+                                          aus den erwarteten Prozentsatz und dem eingetragenen Jahresenergieverbrauch." readonly
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="ElecAuto_Savings_AbsSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="HeatAuto_Savings_AbsDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="HeatAuto_Savings_Abs">Erwartete Einsparung an Heizenergie in kWh p.a.</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="HeatAuto_Savings_Abs" type="number" size="20" step="0.01"
+                                   title="Der absolute Wert der erwarteten Einsparung an Heizenergie. Berechnet
+                                          aus den erwarteten Prozentsatz und dem eingetragenen Jahresenergieverbrauch." readonly
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="HeatAuto_Savings_AbsSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <br/>
+                        <!-- ## Reihe 3 ## -->
+                        <div id="ElecAuto_CostDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="ElecAuto_Cost">Investitionskosten zur Stromeinsparung in €:</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="ElecAuto_Cost" type="number" size="20" step="1"
+                                   title="Kosten für Investition, Installation und Inbetriebnahme der technischen
+                                   Maßnahme zur Erzielung der angegebenen Einsparung elektrischer Energie (weitgehende Wartungsfreiheit
+                                   vorausgesetzt)." value="0"
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="ElecAuto_CostSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="HeatAuto_CostDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="HeatAuto_Cost">Investitionskosten zur Wärmeeinsparung in €:</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="HeatAuto_Cost" type="number" size="20" step="1"
+                                   title="Kosten für Investition, Installation und Inbetriebnahme der technischen
+                                   Maßnahme zur Erzielung der angegebenen Einsparung der Wärmeenergie (weitgehende Wartungsfreiheit
+                                   vorausgesetzt)." value="0"
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="HeatAuto_CostSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <!-- ## Reihe 4 ## -->
+                        <div id="ElecAuto_CostMaintainDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="ElecAuto_CostMaintain">Erwartete Lebensdauer techn. Komponenten zur Stromeinsparung in Jahren:</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="ElecAuto_CostMaintain" type="number" size="20" step="1"
+                                   title="Nach Ablauf der Lebensdauer fallen erneute Kosten an, im ungünstigsten Fall der
+                                          volle unter 'Investitionskosten zur Stromeinsparung' eingegebene Betrag." value="0"
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="ElecAuto_CostMaintainSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                        <div id="HeatAuto_CostMaintainDIV" class="col-md-6 form-group has-feedback" style="display: block;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <label class="control-label" for="HeatAuto_CostMaintain">Erwartete Lebensdauer techn. Komponenten zur Wärmeeinsparung in Jahren:</label>
+                            </div>
+                            <input class="input-group-sm  form-control" id="HeatAuto_CostMaintain" type="number" size="20" step="1"
+                                   title="Nach Ablauf der Lebensdauer fallen erneute Kosten an, im ungünstigsten Fall der
+                                          volle unter 'Investitionskosten zur Wärmeeinsparung' eingegebene Betrag." value="0"
+                                   data-toggle="tooltip" data-placement="bottom" min="0">
+                            <span id="HeatAuto_CostMaintainSPAN" class="glyphicon form-control-feedback"></span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
+            <br>
+
             <div class="col-md-12">
                 <button id="Automatize_btn_back" type="button" class="btn btn-primary active">Zurück</button>
                 <button id="Automatize_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
@@ -436,34 +539,208 @@
         </div>
 
         <!-----------------  ####### Schulung ###### --------------------->
-        <div class="container" id="Schulung" style="display: block;">
-            <label><input type="checkbox">Schulungsmaßnahmen kalkulieren</label>
-            <div class="form-group" id="Schulung_content" style="display: block; margin-top: 10px;">
-                <div id="showCsasdalcInterestDIV" class="form-group has-feedback">
-                    <label class="control-label" for="showCalcInterest">SCHULUNG:</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="showCalcI12321nterest" type="number" min="0" size="50"
-                           step="0.1" title="Kalkulationszinssatz" data-toggle="tooltip" data-placement="bottom"
-                           readonly>
-                    <span id="showasdasCalcInterestSPAN" class="glyphicon form-control-feedback"></span>
+        <div class="container" id="Schulung" style="display: none;">
+            <label><input id="check_calc_education" type="checkbox">Schulungsmaßnahmen kalkulieren</label>
+            <div class="form-group" id="Schulung_content" style="display: none; margin-top: 10px;">
+
+                <div id="EducationFlex1" class="form-group has-feedback" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+
+                    <div id="educationProgrammDIV" class="form-group has-feedback">
+                        <label class="control-label" for="educationProgramm">Schulungsmaßnahme:</label>
+                        <br/>
+                        <select class="selectpicker" name="educationProgramm" id="educationProgramm"
+                                size="50" title="Schulungsmaßnahme"
+                                data-toggle="tooltip" data-placement="bottom">
+                            <optgroup label="Beispielhafte Maßnahmen">
+                                <option value="Energiespartag">Energiespartag</option>
+                                <option value="NutzersensibilisierungsWorkshop">Nutzersensibilisierungs-Workshop</option>
+                                <option value="Feedbacksysteme">Feedbacksysteme</option>
+                                <option value="InformationsMaterial">Informations-Material</option>
+                                <option value="Prompts">Prompts</option>
+                                <option value="SozialerWettbewerb">Sozialer Wettbewerb</option>
+                                <option value="Selbstverpflichtung">Selbstverpflichtung</option>
+                            </optgroup>
+                            <optgroup label="Eigene Maßnahmen">
+                                <option value="eigene">Eigene Maßnahme</option>
+                            </optgroup>
+                        </select>
+                        <span id="educationProgrammSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="educationQuantityDIV" class="form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="educationQuantity">Anzahl der Veranstaltungen:</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="educationQuantity" type="number" size="20" step="1" value="1"
+                               title="Anzahl der Veranstaltungen (Stückzahl), die im Rahmen der Schulungsmaßnahme
+                                      durchgeführt werden."
+                               data-toggle="tooltip" data-placement="bottom" min="1"
+                               data-validation="number">
+                        <span id="educationQuantitySPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="educationCostDIV" class="form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="educationCost">Kosten pro Maßnahme:</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="educationCost" type="number" size="20" step="1" value="0"
+                               title="Die Kosten in € pro Einzeleranstalung."
+                               data-toggle="tooltip" data-placement="bottom" min="0"
+                               data-validation="number">
+                        <span id="educationCostSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="educationTotalCostDIV" class="form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="educationTotalCost">Gesamtkosten Schulungsdurchführung:</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="educationTotalCost" type="number" size="20"
+                               title="Die Gesamtkosten der einmaligen Durchführung der gesamten Schulungsmaßnahme."
+                               data-toggle="tooltip" data-placement="bottom" min="0" readonly
+                               data-validation="number">
+                        <span id="educationTotalCostSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+
                 </div>
-                <div id="finToEmplasdsadoyeesDIV" class="form-group has-feedback">
-                    <label class="control-label" for="finToEmployees">SCHULUNG):</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="finasdasdToEmployees" type="number" min="0" size="50"
-                           value="0.00" step="0.01" title="Beteiligung der MitarbeiterInnen an Energieeinsparungen"
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="finToEmploasdyeesSPAN" class="glyphicon form-control-feedback"></span>
+
+                <div id="EducationFlex2" class="form-group has-feedback" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+
+                    <div id="educationTurnusDIV" class="form-group has-feedback">
+                        <label class="control-label" for="educationTurnus"><br>Schulungsturnus:</label>
+                        <br/>
+                        <select class="selectpicker" name="educationTurnus" id="educationTurnus"
+                                size="50" title="Schulungsturnus"
+                                data-toggle="tooltip" data-placement="bottom">
+                            <optgroup label="Schulungsturnus in Jahren">
+                                <option value="7">einmalig</option>
+                                <option value="1">jährlich</option>
+                                <option value="2">alle 2 Jahre</option>
+                                <option value="3">alle 3 Jahre</option>
+                                <option value="4">alle 4 Jahre</option>
+                                <option value="5">alle 5 Jahre</option>
+                                <option value="6">alle 6 Jahre</option>
+                            </optgroup>
+                        </select>
+                        <span id="educationTurnusSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="educationSuccessRateDIV" class="form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="educationSuccessRate">Erwartete Einsparung in Prozent(%)<br>
+                                                                                    Strom und Wärme kombiniert</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="educationSuccessRate" type="number" size="20" step="1" value="20"
+                               title="Die erwartete Einsparung in Prozent nach Durchführung der Schulungsmaßnahme
+                                relativ zu Eingabe in 'Energiedaten -> Energieverbrauch Strom' bzw. 'Wärme'."
+                               data-toggle="tooltip" data-placement="bottom" min="1" max="100"
+                               data-validation="number">
+                        <span id="educationSuccessRateSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="educationLastsDIV" class="form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="educationLasts"><br>Wirkungsdauer (linearer Verlauf):</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="educationLasts" type="number" size="20" step="1" value="1"
+                               title="Die vermutete Wirkungsdauer in Jahren, bis die Schulungsmaßnahme gänzlich ihre Wirkung verliert.
+                                Es wird ein lineare Abnahme der Einsparung angenommen."
+                               data-toggle="tooltip" data-placement="bottom" min="1"
+                               data-validation="number">
+                        <span id="educationLastsSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+                    <div id="educationTotalSavingsDIV" class="form-group has-feedback">
+                        <div style="display: flex; justify-content: space-between;">
+                            <label class="control-label" for="educationTotalSavings"><br>Gesamteinsparung in kWh für Wirkungsdauer:</label>
+                        </div>
+                        <input class="input-group-sm  form-control" id="educationTotalSavings" type="number" size="20"
+                               title="Die Gesamteinsparung pro Durchführung einer Schulungsmaßnahme. Hierbei wird der
+                                Schulungsturnus nicht berücksichtigt."
+                               data-toggle="tooltip" data-placement="bottom" min="0" readonly
+                               data-validation="number">
+                        <span id="educationTotalSavingsSPAN" class="glyphicon form-control-feedback"></span>
+                    </div>
+
                 </div>
-                <div id="finSaveEnerg123123yPADIV" class="form-group has-feedback">
-                    <label class="control-label" for="finSaveEnergyPA">SCHULUNG</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="finSaveE123123ergyPA" type="number" min="0" size="50"
-                           value="0" step="1" title="Erwartete Energieeinsparungen in kWh pro Jahr"
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="finSaveEn123123ergyPASPAN" class="glyphicon form-control-feedback"></span>
+
+                <br>
+
+                <div id="showTableOfPrograms" class="table-responsive">
+                    <label class="control-label"><u>Beispielhafte Schulungsmaßnahmen:</u></label>
+                    <br/><br/>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Intervention</th>
+                                <th>Inhalt</th>
+                                <th>Erreichte Personenmenge</th>
+                                <th>Kosten</th>
+                                <th>Zeit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Energiespartag</td>
+                                <td>Informationen und Präsentationen zum Thema Energie,
+                                    ggf. kleine praktische Vorführungen
+                                    (z.B. Radfahren für Lampe)</td>
+                                <td>20</td>
+                                <td>300 €</td>
+                                <td>5 Tage<br>
+                                    1 Tag Durchführung, <br>
+                                    Vorbereitung/Nachbereitung 2 Tage</td>
+                            </tr>
+                            <tr>
+                                <td>Nutzersensibilisierungs- Workshop / Energiespar-Trainings</td>
+                                <td>Wissenserhöhung bzgl. Zusammenhänge und Handlungsmöglichkeiten; direkte Anleitung</td>
+                                <td>bis zu 20</td>
+                                <td>300 € – 800 €</td>
+                                <td>2 Tage <br>
+                                    1 Tag Durchführung, <br>
+                                    Vorbereitung/Nachbereitung 0,5 Tage</td>
+                            </tr>
+                            <tr>
+                                <td>Feedbacksysteme</td>
+                                <td>Rückmeldung über Verbrauchsverhalten</td>
+                                <td>beliebig</td>
+                                <td>Abhängig von technischer Lösung/ Rückmeldungsebene (Gebäude vs. individuell)</td>
+                                <td>Abhängig von technischer Lösung/ Rückmeldungsebene (Gebäude vs. individuell)</td>
+                            </tr>
+                            <tr>
+                                <td>Informations-Material</td>
+                                <td>Wissenserhöhung bzgl. Zusammenhänge und Handlungsmöglichkeiten</td>
+                                <td>beliebig</td>
+                                <td>100 – 200 € <br>
+                                    z.T. kostenlos bei Energie-agenturen erhältlich</td>
+                                <td>0,5 Tag verteilen / erklären</td>
+                            </tr>
+                            <tr>
+                                <td>Prompts</td>
+                                <td>Handlungsimpulse m durch direkte Hinweise / erinnerungshinweise (Aufkleber, Poster, Schilder)</td>
+                                <td>beliebig</td>
+                                <td>100 – 200 € <br>
+                                    z.T. kostenlos bei Energie-agenturen erhältlich</td>
+                                <td>0,5 Tag verteilen / erklären</td>
+                            </tr>
+                            <tr>
+                                <td>Sozialer Wettbewerb</td>
+                                <td>Sparwettbewerb zwischen Gruppen / Abteilungen</td>
+                                <td>beliebig</td>
+                                <td>100-300 €, <br>
+                                    abhängig von incentives</td>
+                                <td>5 Tage<br>
+                                    1 Tag Durchführung, Vorbereitung/Nachbereitung <br> 2 Tage; ggf. Messungen
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Selbstverpflichtung</td>
+                                <td>Zielvereinbarung und Motivierung</td>
+                                <td>beliebig</td>
+                                <td>-/-</td>
+                                <td>3 Tage<br>
+                                    1 Tag Durchführung, Vorbereitung/Nachbereitung <br> 1 Tag;
+                                    ggf. Messungen</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+
             </div>
+
             <div class="col-md-12">
                 <button id="Schulung_btn_back" type="button" class="btn btn-primary active">Zurück</button>
                 <button id="Schulung_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
@@ -472,33 +749,27 @@
 
         <!-----------------  ####### Fin. Anreiz ###### --------------------->
         <div class="container" id="FinAnreiz" style="display: none;">
-            <label><input type="checkbox">Finanzielles Anreizsystem kalkulieren</label>
-            <div class="form-group" id="FinAnreiz_content" style="display: none; margin-top: 10px;">
+            <div class="form-group" id="FinAnreiz_content" style="display: block; margin-top: 10px;">
                 <div id="showCalcInterestDIV" class="form-group has-feedback">
-                    <label class="control-label" for="showCalcInterest">Kalkulationszins:</label>
+                    <label class="control-label" for="showCalcInterest">Kalkulationszins in Prozent(%) p.a.:</label>
                     <br/>
-                    <input class="input-group-sm form-control" id="showCalcInterest" type="number" min="0" size="50"
-                           step="0.1" title="Kalkulationszinssatz" data-toggle="tooltip" data-placement="bottom"
-                            readonly>
+                    <input class="input-group-sm form-control" id="showCalcInterest" type="number" min="0" max="100"
+                           size="50" step="0.1" title="Kalkulationszinssatz" data-toggle="tooltip" data-placement="bottom"
+                            value="2.00">
                     <span id="showCalcInterestSPAN" class="glyphicon form-control-feedback"></span>
                 </div>
+
                 <div id="finToEmployeesDIV" class="form-group has-feedback">
-                    <label class="control-label" for="finToEmployees">Beteiligung in Prozent(%):</label>
+                    <label class="control-label" for="finToEmployees">Beteiligung an Einsparung in Prozent(%):</label>
                     <br/>
                     <input class="input-group-sm form-control" id="finToEmployees" type="number" min="0" size="50"
-                           value="0.00" step="0.01" title="Beteiligung der MitarbeiterInnen an Energieeinsparungen"
-                           data-toggle="tooltip" data-placement="bottom">
+                           value="15.00" step="0.01" title="Beteiligung der MitarbeiterInnen an Energieeinsparungen"
+                           data-toggle="tooltip" data-placement="bottom" min="0" max="100">
                     <span id="finToEmployeesSPAN" class="glyphicon form-control-feedback"></span>
                 </div>
-                <div id="finSaveEnergyPADIV" class="form-group has-feedback">
-                    <label class="control-label" for="finSaveEnergyPA">Erwartete Einsparung in kWh p.a.:</label>
-                    <br/>
-                    <input class="input-group-sm form-control" id="finSaveEnergyPA" type="number" min="0" size="50"
-                           value="0" step="1" title="Erwartete Energieeinsparungen in kWh pro Jahr"
-                           data-toggle="tooltip" data-placement="bottom">
-                    <span id="finSaveEnergyPASPAN" class="glyphicon form-control-feedback"></span>
-                </div>
+
             </div>
+
             <div class="col-md-12">
                 <button id="FinAnreiz_btn_back" type="button" class="btn btn-primary active">Zurück</button>
                 <button id="FinAnreiz_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
@@ -506,6 +777,97 @@
         </div>
 
 
+        <!-----------------  ####### Kontrolle ###### --------------------->
+        <div class="container" id="Kontrolle" style="display: block;">
+            <div class="form-group" id="Kontrolle_content" style="display: block; margin-top: 10px;">
+
+                <button id="control_All">Click To Control</button>
+
+                <!-- Adresse -->
+                <div class="form-group">
+                    <label for="control_Adresse" class="col-sm-1 control-label">Adresse:</label>
+                    <div class="col-sm-11">
+                        <input class="form-control" id="control_Adresse" type="text" readonly>
+                    </div>
+                </div>
+
+                <!-- Gebäude -->
+                <div class="form-group">
+                    <label for="control_Gebaeudeform" class="col-sm-1 control-label">Gebäude:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_Gebaeudeform" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_Baujahr" type="text" readonly>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="control_BJKombi" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_Geschosse" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_Flaeche" type="text" readonly>
+                    </div>
+                </div>
+
+                <!-- Energie -->
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Energie:</label>
+                    <label class="col-sm-2 control-label">Elektrisch:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_EQuelle" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_EPreis" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_EPreissteigerung" type="text" readonly>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="control_EVerbrauch" type="text" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label"></label>
+                    <label class="col-sm-2 control-label">Wärme:</label>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_HQuelle" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_HPreis" type="text" readonly>
+                    </div>
+                    <div class="col-sm-2">
+                        <input class="form-control" id="control_HPreissteigerung" type="text" readonly>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="control_HVerbrauch" type="text" readonly>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label"></label>
+                    <label class="col-sm-2 control-label">Nutzerverhalten:</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="control_NutzerRot" type="text" readonly>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="control_NutzerBlau" type="text" readonly>
+                    </div>
+                    <div class="col-sm-3">
+                        <input class="form-control" id="control_NutzerGruen" type="text" readonly>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-12">
+                    <button id="Kontrolle_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                    <button id="Kontrolle_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+                </div>
+            </div>
+        </div>
 
 
 
@@ -516,6 +878,44 @@
 </div>
 <!--------------- END OF CONTENT ------------->
 
+<br><br>
+    <!--footer>
+        <div id="footer">
+            <div class="container">
+                <div class="row">
+                    <h3 class="footertext">About Us:</h3>
+                    <br>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="http://www.uni-saarland.de/fileadmin/_processed_/csm_logo_02_67415bb999.png" class="img-circle" alt="the-brains">
+                            <br>
+                            <h4 class="footertext">Lehrstuhl Controlling</h4>
+                            <p class="footertext">You can thank all the crazy programming here to this guy.<br>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="http://oi60.tinypic.com/2z7enpc.jpg" class="img-circle" alt="...">
+                            <br>
+                            <h4 class="footertext">Projekt EULE</h4>
+                            <p class="footertext">All the images here are hand drawn by this man.<br>
+                        </center>
+                    </div>
+                    <div class="col-md-4">
+                        <center>
+                            <img src="http://oi61.tinypic.com/307n6ux.jpg" class="img-circle" alt="...">
+                            <br>
+                            <h4 class="footertext">Universität des Saarlandes</h4>
+                            <p class="footertext">This pretty site and the copy it holds are all thanks to this guy.<br>
+                        </center>
+                    </div>
+                </div>
+                <div class="row">
+                    <p><center><a href="#">Contact Stuff Here</a> <p class="footertext">Copyright 2016</p></center></p>
+                </div>
+            </div>
+        </div>
+    </footer-->
 
 <!-- JQuery 3.3.7 -->
 <script src="../lib/jquery/jquery-3.2.1.min.js"></script>
@@ -534,6 +934,7 @@
 <script type="text/javascript" src="js/calc/4_automatize.js"></script>
 <script type="text/javascript" src="js/calc/5_education.js"></script>
 <script type="text/javascript" src="js/calc/6_financial.js"></script>
+<script type="text/javascript" src="js/calc/7_control.js"></script>
 <script type="text/javascript" src="js/berechnung.js"></script>
 </body>
 </html>
