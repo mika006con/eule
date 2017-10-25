@@ -11,70 +11,30 @@ $("#Kontrolle_btn_forward").on({
         }
 });
 
+function testCase(){
+    $("#buildingYearMain").val(1921);
+    $("#upperStories").val(4);
+    $("#siteA").val(10);
+    $("#siteB").val(10);
+    $("#siteC").val(10);
+    $("#siteD").val(10);
+    
+    energElec_Unknown.prop('checked', true);
+    energElecIncrease_Unknown.prop('checked', true);
+    energElecUsage_Unknown.prop('checked', true);
+    energHeat_Unknown.prop('checked', true);
+    energHeatIncrease_Unknown.prop('checked', true);
+    energHeatUsage_Unknown.prop('checked', true);
+}
+testCase();
 
 function getFullAddress() {
-    return   ($("#locationStreet").val() + " "
-            + $("#locationHouseID").val() + ", "
-            + $("#locationZIP").val() + " "
-            + $("#locationCity").val() + ", "
-            + $("#locationCountry").val());
-}
-function getSquareMeters(){
-    var selectedForm = $('input[name=buildingType]:checked', '#AufbauartDIV').val();
-    var SquareMeters = 0;
-    var Gebaeudeform = $("#control_Gebaeudeform");
-    var A = parseFloat($("#siteA").val());
-    var B = parseFloat($("#siteB").val());
-    var C = parseFloat($("#siteC").val());
-    var D = parseFloat($("#siteD").val());
-    var E = parseFloat($("#siteE").val());
-    var F = parseFloat($("#siteF").val());
-    var G = parseFloat($("#siteG").val());
-    var H = parseFloat($("#siteH").val());
-    var I = parseFloat($("#siteI").val());
-    var J = parseFloat($("#siteJ").val());
-    var K = parseFloat($("#siteK").val());
-    var L = parseFloat($("#siteL").val());
-
-    function SehnenviereckRechner(a, b, c, d){  // https://rechneronline.de/pi/sehnenviereck.php
-        var s = (a+b+c+d)/2;   // Halbumfang
-        return (Math.round(Math.sqrt(((s-a) * (s-b) * (s-c) * (s-d)))));
-    }
-
-    switch (selectedForm){
-        case "quadratisch":   //quadratisch (A, B, C, D)
-            Gebaeudeform.val("Quadratisch");
-            SquareMeters = SehnenviereckRechner(A, B, C, D);
-            break;
-        case "rechteckig":    //rechteckig (A, B, C, D)
-            Gebaeudeform.val("Rechteckig");
-            SquareMeters = SehnenviereckRechner(A, B, C, D);
-            break;
-        case "lform":         //lform (A, B, C, D, E, F)
-            Gebaeudeform.val("L-Förmig");
-            var q1 = SehnenviereckRechner((A-E), (B-D), C, F);
-            var q2 = SehnenviereckRechner((A-E), (B-F), C, D);
-            var q3 = SehnenviereckRechner((A-C), (B-D), E, F);
-            SquareMeters = q1 + q2 + q3;
-            break;
-        case "hform":         //hform (A, B, C, D, E, F, G, H, I, J, K, L)
-            Gebaeudeform.val("H-Förmig");
-            break;
-        case "uform":         //uform (A, B, C, D, E, F, G, H)
-            Gebaeudeform.val("U-Förmig");
-            var q4 = SehnenviereckRechner((A-G), B, (C-E), (H+F+D));
-            var q5 = Math.round(G*H);
-            var q6 = Math.round(E*D);
-            SquareMeters = q4 + q5 + q6;
-            break;
-        case "oform":         //oform (A, B, C, D, E, F, G, H)
-            Gebaeudeform.val("O-Förmig");
-            SquareMeters = (SehnenviereckRechner(A,B,C,D) - SehnenviereckRechner(E,F,G,H));
-            break;
-        default:
-    }
-    //alert(SquareMeters + " || TODO: 7_controls: Zeile 72, HForm sqm-Berechnung");
-    return SquareMeters;
+    return   ($("#route").val() + " "
+            + $("#street_number").val() + ", "
+            + $("#postal_code").val() + " "
+            + $("#locality").val() + ", "
+            + $("#administrative_area_level_1").val() + ", "
+            + $("#country").val());
 }
 function getBJKombi(){
     if(document.getElementById('isBuildingAddition').checked){
@@ -97,17 +57,40 @@ function getFullBulding(){
 function getFullEnergy(){
     $("#control_EQuelle").val( $("#energySourceElec").val() );
     $("#control_EPreis").val( $("#energyCostElec").val() + " €/kWh");
-    $("#control_EPreissteigerung").val( $("#energyCostIncreaseElec").val() + " % p.a.");
+    $("#control_EPreissteigerung").val( "+ " + $("#energyCostIncreaseElec").val() + "% p.a.");
     $("#control_EVerbrauch").val( $("#energyUsageElec").val() + " kWh / Jahr");
 
     $("#control_HQuelle").val( $("#energySourceHeat").val() );
     $("#control_HPreis").val( $("#energyCostHeat").val() + " €/kWh");
-    $("#control_HPreissteigerung").val( $("#energyCostIncreaseHeat").val() + " % p.a.");
+    $("#control_HPreissteigerung").val( "+ " + $("#energyCostIncreaseHeat").val() + "% p.a.");
     $("#control_HVerbrauch").val( $("#energyUsageHeat").val() + " kWh / Jahr");
 
     $("#control_NutzerRot").val( $("#redBehaviour").val() + " %");
     $("#control_NutzerBlau").val( $("#blueBehaviour").val() + " %");
     $("#control_NutzerGruen").val( $("#greenBehaviour").val() + " %");
+}
+
+function getFullAutomize(){
+    var automizeIsChecked = document.getElementById('check_calc_automatize').checked;
+    if(automizeIsChecked) {
+        // TODO: Control issues to program
+    } else {
+        $("#control_Automize").val("Es sollen keine Automatisierungsmaßnahmen berücksichtigt werden.");
+    }
+}
+
+function getFullEducation(){
+    var educationIsChecked = document.getElementById('check_calc_education').checked;
+    if(educationIsChecked) {
+        // TODO: Control issues to program
+    } else {
+        $("#control_Education").val("Es sollen keine Schulungsmaßnahmen berücksichtigt werden.");
+    }
+}
+
+function getFullFinancial(){
+    $("#control_Fin_InterestRate").val( $("#finToEmployees").val() + "% Beteiligung" );
+    $("#control_Fin_Percent").val( $("#showCalcInterest").val() + " % p.a.");
 }
 
 $("#control_All").on({
@@ -116,5 +99,8 @@ $("#control_All").on({
             $("#control_Adresse").val(getFullAddress());
             getFullBulding();
             getFullEnergy();
+            getFullAutomize();
+            getFullEducation();
+            getFullFinancial();
         }
 });

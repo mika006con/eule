@@ -1,84 +1,120 @@
 function Step1Validation(){
-    var street = $("#locationStreetDIV").hasClass("has-success");
-    var houseid = $("#locationHouseIDDIV").hasClass("has-success");
-    var zipcode = $("#locationZIPDIV").hasClass("has-success");
-    var city = $("#locationCityDIV").hasClass("has-success");
-    var country = $("#locationCountryDIV").hasClass("has-success");
-    return street && houseid && zipcode && city && country;
+    var street = $("#routeDIV").hasClass("has-success");
+    var zipcode = $("#postal_codeDIV").hasClass("has-success");
+    var city = $("#localityDIV").hasClass("has-success");
+    var country = $("#countryDIV").hasClass("has-success");
+    return street  && zipcode && city && country;
+}
+
+function checkAddressEntries () {
+    checkStreet();
+    checkStreetNumber();
+    checkPostalCode();
+    checkLocality();
+    checkCountry();
+    checkAdministrativeArea();
+    enableForwardButtonGrunddaten();
+}
+
+function checkStreet() {
+    removeValidationClasses("#route");
+    switch ($("#route").val()) {
+        case "" :
+            addValidationClasses("#route", "error");
+            break;
+        default :
+            addValidationClasses("#route", "success");
+    }
+}
+
+function checkStreetNumber() {
+    removeValidationClasses("#street_number");
+    switch ($("#street_number").val()) {
+        case "" :
+            addValidationClasses("#street_number", "error");
+            break;
+        default :
+            addValidationClasses("#street_number", "success");
+    }
+}
+
+function checkPostalCode() {
+    removeValidationClasses("#postal_code");
+    switch ($("#postal_code").val()) {
+        case "":
+            addValidationClasses("#postal_code", "error");
+            break;
+        default :
+            addValidationClasses("#postal_code", "success");
+    }
+}
+
+function checkLocality() {
+    removeValidationClasses("#locality");
+    switch ($("#locality").val()) {
+        case "" :
+            addValidationClasses("#locality", "error");
+            break;
+        default :
+            addValidationClasses("#locality", "success");
+    }
+}
+
+function checkAdministrativeArea() {
+    removeValidationClasses("#administrative_area_level_1");
+    switch ($("#administrative_area_level_1").val()) {
+        case "" :
+            addValidationClasses("#administrative_area_level_1", "error");
+            break;
+        default :
+            addValidationClasses("#administrative_area_level_1", "success");
+    }
+}
+
+function checkCountry() {
+    removeValidationClasses("#country");
+    switch ($("#country").val()) {
+        case "" :
+            addValidationClasses("#country", "error");
+            break;
+        default :
+            addValidationClasses("#country", "success");
+    }
+}
+
+function enableForwardButtonGrunddaten(){
+    document.getElementById('Grunddaten_btn_forward').disabled = !Step1Validation();
 }
 
 $("#Grunddaten_btn_forward").on({
     click:
         function(){
-            formShowNext(true, "Grunddaten", "Gebäudedaten");
-            //formShowNext(Step1Validation(), "Grunddaten", "Gebäudedaten");
+            formShowNext(Step1Validation(), "Grunddaten", "Gebäudedaten");
         }
 });
 
 // --> Step 1 onFocusOut Validation Events <<<
 // TODO: Enter Validation values
-$("#locationStreet").on({
-    focusout:
-        function checkStreet() {
-            removeValidationClasses("#locationStreet");
-            switch ($("#locationStreet").val()) {
-                case "" :
-                    addValidationClasses("#locationStreet", "success");
-                    break;
-                default :
-                    addValidationClasses("#locationStreet", "error");
-            }
-        }
+$("#route").on({
+    change: function(){ checkStreet(); enableForwardButtonGrunddaten() }
 });
-$("#locationHouseID").on({
-    focusout:
-        function() {
-            removeValidationClasses("#locationHouseID");
-            switch ($("#locationHouseID").val()) {
-                case "" :
-                    addValidationClasses("#locationHouseID", "success");
-                    break;
-                default :
-                    addValidationClasses("#locationHouseID", "error");
-            }
-        }
+
+$("#street_number").on({
+    change: function(){ checkStreetNumber(); enableForwardButtonGrunddaten() }
 });
-$("#locationZIP").on({
-    focusout:
-        function() {
-            removeValidationClasses("#locationZIP");
-            switch ($("#locationZIP").val()) {
-                case "":
-                    addValidationClasses("#locationZIP", "success");
-                    break;
-                default :
-                    addValidationClasses("#locationZIP", "error");
-            }
-        }
+
+$("#postal_code").on({
+    change: function(){ checkPostalCode(); enableForwardButtonGrunddaten() }
 });
-$("#locationCity").on({
-    focusout:
-        function() {
-            removeValidationClasses("#locationCity");
-            switch ($("#locationCity").val()) {
-                case "" :
-                    addValidationClasses("#locationCity", "success");
-                    break;
-                default :
-                    addValidationClasses("#locationCity", "error");
-            }
-        }
+
+$("#locality").on({
+    change: function(){ checkLocality(); enableForwardButtonGrunddaten() }
 });
-$("#locationCountry").on({
-    focusout:
-        function() {
-            removeValidationClasses("#locationCountry");
-            switch ($("#locationCountry").val()) {
-                case "" :
-                    addValidationClasses("#locationCountry", "success");
-                    break;
-                default :
-                    addValidationClasses("#locationCountry", "error");
-            }
-        }
+
+$("#administrative_area_level_1").on({
+    change: function(){ checkAdministrativeArea(); enableForwardButtonGrunddaten() }
+});
+
+$("#country").on({
+    change: function(){ checkCountry(); enableForwardButtonGrunddaten() }
 });

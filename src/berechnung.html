@@ -63,103 +63,72 @@
             </div>
         </div>
 
-        <!-----------------  ####### TEST API Adresse ###### --------------------->
-
-        <div id="locationField">
-            <input id="autocomplete" placeholder="Enter your address"
-                   onFocus="geolocate()" type="text">
-            </input>
-        </div>
-        <table id="address">
-            <tr>
-                <td class="label">Street address</td>
-                <td class="slimField"><input class="field" id="street_number" disabled="true"> </input></td>
-                <td class="wideField" colspan="2"><input class="field" id="route" disabled="true"> </input></td>
-            </tr>
-            <tr>
-                <td class="label">City</td>
-                <!-- Note: Selection of address components in this example is typical.
-                     You may need to adjust it for the locations relevant to your app. See
-                     https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
-                -->
-                <td class="wideField" colspan="3"><input class="field" id="locality"
-                                                         disabled="true"></input></td>
-            </tr>
-            <tr>
-                <td class="label">State</td>
-                <td class="slimField"><input class="field"
-                                             id="administrative_area_level_1" disabled="true"></input></td>
-                <td class="label">Zip code</td>
-                <td class="wideField"><input class="field" id="postal_code"
-                                             disabled="true"></input></td>
-            </tr>
-            <tr>
-                <td class="label">Country</td>
-                <td class="wideField" colspan="3"><input class="field"
-                                                         id="country" disabled="true"></input></td>
-            </tr>
-        </table>
-
         <!-----------------  ####### Grunddaten Adresse ###### --------------------->
 
-        <div class="container" id="Grunddaten" style="display: block;">
+        <div class="container" id="Grunddaten" style="display: none;">
             <div class="form-group">
-                <label class="control-label" for="locationAutocomplete">Adresse:</label>
+                <label class="control-label" for="autocomplete">Adresse:</label>
                 <br/>
-                <input class="input-group-sm" id="locationAutocomplete" type="text" size="50"
-                       placeholder="Geben Sie hier Ihre Adresse ein" onfocus="geolocate()">
+                <div id="locationField">
+                    <input class="input-group-sm" id="autocomplete" placeholder="Geben Sie hier Ihre Adresse ein"
+                           onFocus="geolocate()" type="text" size="50">
+                </div>
                 <br />
                 <br />
             </div>
-            <div id="locationStreetDIV" class="form-group has-feedback">
-                <label class="control-label" for="locationStreet">Straße:</label>
+            <div id="routeDIV" class="form-group has-feedback">
+                <label class="control-label" for="route">Straße:</label>
                 <br/>
-                <input class="input-group-sm form-control" id="locationStreet" type="text" size="50"
+                <input class="input-group-sm form-control" id="route" disabled="true" type="text" size="30"
                         title="Straße des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <span id="locationStreetSPAN" class="glyphicon form-control-feedback"></span>
+                <span id="routeSPAN" class="glyphicon form-control-feedback"></span>
                 <br/>
             </div>
-            <div id="locationHouseIDDIV" class="form-group has-feedback">
-                <label class="control-label" for="locationHouseID">Haus-Nr:</label>
+            <div id="street_numberDIV" class="form-group has-feedback">
+                <label class="control-label" for="street_number">Haus-Nr:</label>
                 <br/>
-                <input class="input-group-sm form-control" id="locationHouseID" type="text" size="50"
-                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <span id="locationHouseIDSPAN" class="glyphicon form-control-feedback"></span>
+                <input class="input-group-sm form-control" id="street_number" type="text" size="30"
+                       title="Hausnummer des Objektes" data-toggle="tooltip" data-placement="bottom" disabled="true">
+                <span id="street_numberSPAN" class="glyphicon form-control-feedback"></span>
                 <br />
             </div>
-            <div id="locationZIPDIV" class="form-group has-feedback">
-                <label class="control-label" for="locationZIP">PLZ:</label>
+            <div id="postal_codeDIV" class="form-group has-feedback">
+                <label class="control-label" for="postal_code">PLZ:</label>
                 <br/>
-                <input class="input-group-sm form-control" id="locationZIP" type="text" size="50"
+                <input class="input-group-sm form-control" id="postal_code" type="text" size="30" disabled="true"
                        title="Postleitzahl des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <span id="locationZIPSPAN" class="glyphicon form-control-feedback"></span>
+                <span id="postal_codeSPAN" class="glyphicon form-control-feedback"></span>
                 <br/>
             </div>
-            <div id="locationCityDIV" class="form-group has-feedback">
-                <label class="control-label" for="locationCity">Stadt:</label>
+            <div id="localityDIV" class="form-group has-feedback">
+                <label class="control-label" for="locality">Stadt:</label>
                 <br/>
-                <input class="input-group-sm form-control" id="locationCity" type="text" size="50"
+                <input class="input-group-sm form-control" id="locality" type="text" size="30" disabled="true"
                        title="Stadt des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <span id="locationCitySPAN" class="glyphicon form-control-feedback"></span>
+                <span id="localitySPAN" class="glyphicon form-control-feedback"></span>
                 <br />
             </div>
-            <div id="locationCountryDIV" class="form-group has-feedback">
-                <label class="control-label" for="locationCountry">Land:</label>
+            <div id="countryDIV" class="form-group has-feedback">
+                <label class="control-label" for="country">Land:</label>
                 <br/>
-                <input class="input-group-sm form-control" id="locationCountry" type="text" size="50"
+                <input class="input-group-sm form-control" id="country" type="text" size="30" disabled="true"
                        title="Land des Objektes" data-toggle="tooltip" data-placement="bottom">
-                <span id="locationCountrySPAN" class="glyphicon form-control-feedback"></span>
+                <span id="countrySPAN" class="glyphicon form-control-feedback"></span>
+                <br/>
+            </div>
+            <div id="administrative_area_level_1DIV" class="form-group has-feedback">
+                <label class="control-label" for="administrative_area_level_1">Bundesland:</label>
+                <br/>
+                <input class="input-group-sm form-control" id="administrative_area_level_1" type="text" size="30" disabled="true"
+                       title="Bundesland des Objektes" data-toggle="tooltip" data-placement="bottom">
+                <span id="administrative_area_level_1SPAN" class="glyphicon form-control-feedback"></span>
                 <br/>
             </div>
             <div class="col-md-12">
                 <button id="Grunddaten_btn_back" type="button" class="btn btn-primary disabled">Zurück</button>
-                <button id="Grunddaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+                <button id="Grunddaten_btn_forward" type="button" class="btn btn-primary active" disabled="true">Weiter</button>
             </div>
             <script>
-                // This example displays an address form, using the autocomplete feature
-                // of the Google Places API to help users fill in the information.
-
-
                 var placeSearch, autocomplete;
                 var componentForm = {
                     street_number: 'short_name',
@@ -200,13 +169,14 @@
                             document.getElementById(addressType).value = val;
                         }
                     }
+                    checkAddressEntries();
                 }
 
                 // Bias the autocomplete object to the user's geographical location,
                 // as supplied by the browser's 'navigator.geolocation' object.
                 function geolocate() {
                     if (navigator.geolocation) {
-                        navigator.geolocation.getCurrentPosition(function(position) {
+                        navigator.geolocation.getCurrentPosition(function (position) {
                             var geolocation = {
                                 lat: position.coords.latitude,
                                 lng: position.coords.longitude
@@ -230,7 +200,7 @@
                     <label class="control-label" for="buildingYearMain">Baujahr Haupthaus:</label>
                     <br/>
                     <input class="input-group-sm form-control" id="buildingYearMain" type="number" min="1800" size="50"
-                           title="Baujahr des Gebäudes" data-toggle="tooltip" data-placement="bottom"
+                           max="2019" title="Baujahr des Gebäudes" data-toggle="tooltip" data-placement="bottom"
                            data-validation="date" data-validation-format="yyyy">
                     <span id="buildingYearMainSPAN" class="glyphicon form-control-feedback"></span>
                 </div>
@@ -241,7 +211,7 @@
                     <label class="control-label" for="buildingYearAdd">Baujahr Anbau:</label>
                     <br/>
                     <input class="input-group-sm form-control" id="buildingYearAdd" type="number" min="1800" size="50"
-                           title="Baujahr des Anbaus" data-toggle="tooltip" data-placement="bottom"
+                           max="2019" title="Baujahr des Anbaus" data-toggle="tooltip" data-placement="bottom"
                            data-validation="date" data-validation-format="yyyy">
                     <span id="buildingYearAddSPAN" class="glyphicon form-control-feedback"></span>
                     <br/>
@@ -249,9 +219,9 @@
                 <div id="buildingYearAddPercentDIV" class="form-group has-feedback" style="display: none;">
                     <label class="control-label" for="buildingYearAddPercent">Prozentualer (%) Anteil des Anbaus am Gebäude:</label>
                     <br/>
-                    <input class="input-group-sm form-control" id="buildingYearAddPercent" type="number" min="0" max="100" size="50"
-                           title="Baujahr des Anbaus" data-toggle="tooltip" data-placement="bottom"
-                           data-validation="date" data-validation-format="yyyy">
+                    <input class="input-group-sm form-control" id="buildingYearAddPercent" type="number" min="1" max="99" size="50"
+                           title="Wie hoch ist der prozentuale Anteil des Anbaus am neuentstandenen Gesamtgebäude"
+                           data-toggle="tooltip" data-placement="bottom">
                     <span id="buildingYearAddPercentSPAN" class="glyphicon form-control-feedback"></span>
                     <br/>
                 </div>
@@ -317,24 +287,34 @@
                                 <label id="siteKlabel" class="control-label" for="siteK" style="visibility: hidden;">K (m):
                                 <input class="input-group-sm form-control" id="siteK" type="number" step="0.01" min="0" size="10"
                                        title="Länge der Seite K (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
-                                <label id="siteLlabel"l class="control-label" for="siteL" style="visibility: hidden;">L (m):
+                                <label id="siteLlabel" class="control-label" for="siteL" style="visibility: hidden;">L (m):
                                 <input class="input-group-sm form-control" id="siteL" type="number" step="0.01" min="0" size="10"
                                        title="Länge der Seite L (in Metern)" data-toggle="tooltip" data-placement="bottom"></label>
                             </div>
                         </div>
+                        <br>
+                        <div id="AufbauMeasurableDIV" class="form-group has-feedback" style="display: block;">
+                            <input class="input-group-sm form-control" id="AufbauMeasurable" type="text" size="50"
+                                   data-toggle="tooltip" data-placement="bottom" value="Die eingegebenen Abmessungen führen zu einer nicht berechenbaren Fläche."
+                            readonly>
+                            <span id="AufbauMeasurableSPAN" class="glyphicon form-control-feedback"></span>
+                            <br/>
+                        </div>
                     </div>
                 </div>
+                <div id="upperStoriesDIV" class="form-group has-feedback">
+                    <label class="control-label" for="upperStories">Anzahl der Geschosse:</label>
+                    <br/>
+                    <input class="input-group-sm form-control" id="upperStories" type="number" min="1" max="250" size="50"
+                           title="Stockwerke des Objektes, Keller und Erdgeschoss zählen als je 1 Stockwerk"
+                           data-toggle="tooltip" data-placement="bottom">
+                    <span id="upperStoriesSPAN" class="glyphicon form-control-feedback"></span>
 
-                <label for="upperStories">Anzahl der Geschosse:</label>
-                <br/>
-                <input class="form-control input-group-sm" id="upperStories" type="text" size="50" step="1"
-                       title="Stockwerke des Objektes, Keller und Erdgeschoss zählen als je 1 Stockwerk"
-                       data-toggle="tooltip" data-placement="bottom">
-                <br />
             </div>
-            <div class="col-md-12">
-               <button id="Gebäudedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
-               <button id="Gebäudedaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+                <div class="col-md-12">
+                   <button id="Gebäudedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
+                   <button id="Gebäudedaten_btn_forward" type="button" class="btn btn-primary active" disabled="true">Weiter</button>
+                </div>
             </div>
         </div>
 
@@ -500,7 +480,7 @@
                         <div id="blueBehaviourDIV" class="form-group has-feedback">
                             <label class="control-label" for="blueBehaviour">Anteil Durchschnittverbraucher (%):</label>
                             <br/>
-                            <input class="input-group-sm form-control" id="blueBehaviour" type="number" min="0" size="50" value="33.33"
+                            <input class="input-group-sm form-control" id="blueBehaviour" type="number" min="0" size="50" value="33.34"
                                    step="0.01" title="Prozentualer Anteil an Beschäftigten, die ein durchschnittliches Umweltbewusstsein pflegen
                                    und gelegentlich motiviert sind, Energie einzusparen." data-toggle="tooltip" data-placement="bottom">
                             <span id="blueBehaviourSPAN" class="glyphicon form-control-feedback"></span>
@@ -518,7 +498,7 @@
             </div>
             <div class="col-md-12">
                 <button id="Energiedaten_btn_back" type="button" class="btn btn-primary active">Zurück</button>
-                <button id="Energiedaten_btn_forward" type="button" class="btn btn-primary active">Weiter</button>
+                <button id="Energiedaten_btn_forward" type="button" class="btn btn-primary active" disabled="true">Weiter</button>
             </div>
         </div>
 
@@ -880,7 +860,6 @@
             </div>
         </div>
 
-
         <!-----------------  ####### Kontrolle ###### --------------------->
         <div class="container" id="Kontrolle" style="display: block;">
             <div class="form-group" id="Kontrolle_content" style="display: block; margin-top: 10px;">
@@ -894,7 +873,8 @@
                         <input class="form-control" id="control_Adresse" type="text" readonly>
                     </div>
                 </div>
-
+                <br>
+                <br>
                 <!-- Gebäude -->
                 <div class="form-group">
                     <label for="control_Gebaeudeform" class="col-sm-1 control-label">Gebäude:</label>
@@ -914,11 +894,12 @@
                         <input class="form-control" id="control_Flaeche" type="text" readonly>
                     </div>
                 </div>
-
+                <br>
+                <br>
                 <!-- Energie -->
                 <div class="form-group">
-                    <label class="col-sm-1 control-label">Energie:</label>
-                    <label class="col-sm-2 control-label">Elektrisch:</label>
+                    <label class="col-sm-1 control-label" style="text-align: left; float: left;">Energie:</label>
+                    <label class="col-sm-2 control-label" style="text-align: left; float: left;">Elektrisch:</label>
                     <div class="col-sm-2">
                         <input class="form-control" id="control_EQuelle" type="text" readonly>
                     </div>
@@ -932,9 +913,10 @@
                         <input class="form-control" id="control_EVerbrauch" type="text" readonly>
                     </div>
                 </div>
+                <br>
                 <div class="form-group">
                     <label class="col-sm-1 control-label"></label>
-                    <label class="col-sm-2 control-label">Wärme:</label>
+                    <label class="col-sm-2 control-label" style="text-align: left; float: left;">Wärme:</label>
                     <div class="col-sm-2">
                         <input class="form-control" id="control_HQuelle" type="text" readonly>
                     </div>
@@ -948,9 +930,10 @@
                         <input class="form-control" id="control_HVerbrauch" type="text" readonly>
                     </div>
                 </div>
+                <br>
                 <div class="form-group">
                     <label class="col-sm-1 control-label"></label>
-                    <label class="col-sm-2 control-label">Nutzerverhalten:</label>
+                    <label class="col-sm-2 control-label" style="text-align: left; float: left;">Nutzerverhalten:</label>
                     <div class="col-sm-3">
                         <input class="form-control" id="control_NutzerRot" type="text" readonly>
                     </div>
@@ -961,9 +944,43 @@
                         <input class="form-control" id="control_NutzerGruen" type="text" readonly>
                     </div>
                 </div>
+                <br>
+                <br>
+
+                <!-- Anreizsystem -->
+                <div class="form-group">
+                    <label for="control_Adresse" class="col-sm-2 control-label" style="text-align: left; float: left;">Automatisierung:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="control_Automize" type="text" readonly>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <!-- Schulungsmaßnahmen -->
+                <div class="form-group">
+                    <label for="control_Adresse" class="col-sm-2 control-label" style="text-align: left; float: left;">Schulungsmaßnahmen:</label>
+                    <div class="col-sm-10">
+                        <input class="form-control" id="control_Education" type="text" readonly>
+                    </div>
+                </div>
+                <br>
+                <br>
 
 
-
+                <!-- Finanzielles Anreizsystem -->
+                <div class="form-group">
+                    <label for="control_Fin_Percent" class="col-sm-2 control-label" style="text-align: left; float: left;">Finanz. Anreizsystem:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="control_Fin_Percent" type="text" readonly>
+                    </div>
+                    <label for="control_Fin_InterestRate" class="col-sm-2 control-label" style="text-align: left; float: left;">Kalkulationszins:</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" id="control_Fin_InterestRate" type="text" readonly>
+                    </div>
+                </div>
+                <br>
+                <br>
 
 
                 <div class="col-md-12">
@@ -972,8 +989,6 @@
                 </div>
             </div>
         </div>
-
-
 
 
 
@@ -1031,6 +1046,7 @@
 <!-- Latest compiled and minified JavaScript -->
 <script src="../lib/bootstrap/js/bootstrap.min.js"></script>
 <!-- Custom Script Files -->
+<script type="text/javascript" src="js/berechnung.js"></script>
 <script type="text/javascript" src="js/calc/0_common.js"></script>
 <script type="text/javascript" src="js/calc/1_address.js"></script>
 <script type="text/javascript" src="js/calc/2_building.js"></script>
@@ -1039,6 +1055,6 @@
 <script type="text/javascript" src="js/calc/5_education.js"></script>
 <script type="text/javascript" src="js/calc/6_financial.js"></script>
 <script type="text/javascript" src="js/calc/7_control.js"></script>
-<script type="text/javascript" src="js/berechnung.js"></script>
+
 </body>
 </html>
